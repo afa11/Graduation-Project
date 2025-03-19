@@ -117,4 +117,27 @@ def apply_ttest(df, column_names, variable):
     print(f"T-statistic: {t_stat:.4f}")
     print(f"P-value: {p_value:.4f}")
     print(f"Significant difference: {p_value < 0.05}")
+
+
+
+def plot_columns_failure_comparison(df, x_col, y_col, color_col, title="Scatter Plot", xlabel=None, ylabel=None):
+    colors = {0: 'red', 1: 'blue', 2: 'black'}
     
+    plt.figure(figsize=(15, 8))
+    
+    # Plot each category as a separate scatter plot
+    for category in df[color_col].unique():
+        subset = df[df[color_col] == category]
+        plt.scatter(subset[x_col], subset[y_col], 
+                   color=colors.get(category, 'gray'),
+                   label=f'Category {category}',
+                   alpha=0.7,  # Add some transparency
+                   s=30)  # Control point size
+    
+    plt.xlabel(xlabel if xlabel else x_col)
+    plt.ylabel(ylabel if ylabel else y_col)
+    plt.title(title)
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
