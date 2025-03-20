@@ -1,0 +1,28 @@
+df1 = mpt.drop_a_column(df, "Unnamed: 0")
+*dropping "Unnamed: 0" column
+
+df2 = df1.assign(condition=0)
+df2a = mpt.change_the_values_by_applying_a_time_filter(df2, f1_start, f1_finish, "condition", 1)
+df2b = mpt.change_the_values_by_applying_a_time_filter(df2a, f2_start, f2_finish, "condition", 1)
+df2c = mpt.change_the_values_by_applying_a_time_filter(df2b, f3_start, f3_finish, "condition", 1)
+df2 = mpt.change_the_values_by_applying_a_time_filter(df2c, f4_start, f4_finish, "condition", 1)
+* basic lebeling
+
+df3a = mpt.change_the_values_by_applying_a_time_filter(df2, "2020-04-17 22:30:00" ,f1_start, "condition", 2 )
+df3b = mpt.change_the_values_by_applying_a_time_filter(df3a, "2020-05-29 22:00:00" ,f2_start, "condition", 2 )
+df3c = mpt.change_the_values_by_applying_a_time_filter(df3b, "2020-06-05 08:30:00" ,f3_start, "condition", 2 )
+df3 = mpt.change_the_values_by_applying_a_time_filter(df3c, "2020-07-15 13:00:00" ,f4_start, "condition", 2 )
+* extra labeling
+
+
+* scaling
+
+* K-Means çekmek
+
+* PCA
+
+* feature importance
+
+* SMOTE
+
+* Time Series şeyler eklemek: son bozulma tarihi
