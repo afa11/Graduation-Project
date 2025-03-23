@@ -4,6 +4,15 @@ import gc
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
+from sklearn.preprocessing import StandardScaler
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
+import numpy as np
+from imblearn.over_sampling import SMOTE
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import f1_score, confusion_matrix
+from sklearn.model_selection import train_test_split
 
 
 def plot_columns(df, x_col, y_col, title="Scatter Plot", xlabel=None, ylabel=None):
@@ -141,3 +150,105 @@ def plot_columns_failure_comparison(df, x_col, y_col, color_col, title="Scatter 
     plt.grid(True)
     plt.tight_layout()
     plt.show()
+
+
+def counter_for_maintenance(df, start_of_interval, finish_date):
+
+    start_of_interval = pd.to_datetime(start_of_interval)
+    finish_date = pd.to_datetime(finish_date)
+    
+
+    df_new = df.copy()
+    
+
+    
+    counter = 0
+    
+
+    for idx, row in df_new.iterrows():
+        time = row["timestamp"]
+        
+        if time >= finish_date:
+            break
+        elif time < start_of_interval:
+            pass
+        else:
+            counter += 1
+            df_new.at[idx, "counter"] = counter
+    
+    return df_new
+
+
+def scale_columns(df, columns):
+    std_scaler = StandardScaler()
+    
+    df_scaled = df.copy()
+    df_scaled[columns] = std_scaler.fit_transform(df[columns])  # Scale only numerical columns
+    
+    return df_scaled
+
+
+
+
+def apply_kmeans_clustering(df, number_of_clusters, target_variable):
+
+    X = df.select_dtypes(include=[np.number]).drop(columns=[target_variable], errors="ignore")
+
+    # Apply K-Means clustering
+    kmeans = KMeans(n_clusters=number_of_clusters, random_state=42, n_init=10)
+    df['Cluster'] = kmeans.fit_predict(X)
+    return df 
+
+
+def check_cluster_distribution(df, condition_column, cluster_column):
+
+    distribution = pd.crosstab(df[cluster_column], df[condition_column])
+    print("\nCluster Distribution by Condition:\n", distribution)
+
+    return distribution
+
+
+def apply_smote(df, target_column, seed):
+
+    X = df.select_dtypes(include=[np.number]).drop(columns=[target_column], errors="ignore")
+    y = df[target_column]
+
+    smote = SMOTE(random_state=seed)
+    X_resampled, y_resampled = smote.fit_resample(X, y)
+
+    df_resampled = pd.DataFrame(X_resampled, columns=X.columns)
+    df_resampled[target_column] = y_resampled
+
+    print("Before : ", df[target_column].value_counts())
+    print("After : ", y_resampled.value_counts())
+
+    return df_resampled
+
+
+def apply_random_forest_and_get_results(df, target, seed=10):
+
+    target = df[target]
+
+    X = df.drop("condition", axis='columns')
+
+
+    X_train, X_test, y_train, y_test = train_test_split(X, target, test_size=0.33, random_state=42)
+
+    model = RandomForestClassifier(n_estimators=100, random_state=seed)
+    model.fit(X_train, y_train)
+    
+    y_pred = model.predict(X_test)
+    accuracy = model.score(X_test, y_test)
+    f1 = f1_score(y_test, y_pred, average='weighted')
+    cm = confusion_matrix(y_test, y_pred)
+    
+    print(f"Accuracy: {accuracy:.4f}")
+    print(f"F1 Score: {f1:.4f}")
+    print("Confusion Matrix:")
+    print(cm)
+    
+    return model, accuracy
+
+
+
+
