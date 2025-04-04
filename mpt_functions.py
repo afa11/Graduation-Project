@@ -13,6 +13,7 @@ from imblearn.over_sampling import SMOTE
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import f1_score, confusion_matrix
 from sklearn.model_selection import train_test_split
+from datetime import datetime, timedelta
 
 
 def plot_columns(df, x_col, y_col, title="Scatter Plot", xlabel=None, ylabel=None):
@@ -251,6 +252,21 @@ def apply_random_forest_and_get_results(df, target, seed=10):
 
     
     return model, accuracy
+
+
+def adjust_datetime(date, direction, days):
+
+    date_format = "%Y-%m-%d %H:%M:%S"
+    date_obj = datetime.strptime(date, date_format)
+
+    if direction =="forward":
+        change = timedelta(days=days)
+    else:
+        change = -timedelta(days=days)
+
+    new_date_obj = date_obj + change
+
+    return new_date_obj.strftime(date_format)
 
 
 
