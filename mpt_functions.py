@@ -14,6 +14,18 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import f1_score, confusion_matrix
 from sklearn.model_selection import train_test_split
 from datetime import datetime, timedelta
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import f1_score
+
+
+f1_start = "2020-04-18 00:00:00"
+f1_finish = "2020-04-18 23:59:00"
+f2_start = "2020-05-29 23:30:00"
+f2_finish = "2020-05-30 06:00:00"
+f3_start = "2020-06-05 10:00:00"
+f3_finish = "2020-06-07 14:30:00"
+f4_start = "2020-07-15 14:30:00"
+f4_finish = "2020-07-15 19:00:00"
 
 
 def plot_columns(df, x_col, y_col, title="Scatter Plot", xlabel=None, ylabel=None):
@@ -267,6 +279,102 @@ def adjust_datetime(date, direction, days):
     new_date_obj = date_obj + change
 
     return new_date_obj.strftime(date_format)
+
+
+"""def change_condition(df, n_rows=3): # TEKRAR YAZILACAK
+
+    # Veri çerçevesinin bir kopyasını oluşturalım
+    df_copy = df.copy()
+    
+    # 'condition' sütunundaki değişimleri bulalım
+    # Bir önceki değer 0 ve şimdiki değer 1 olan yerleri tespit edelim
+    condition_change = (df_copy['condition'].shift(1) == 0) & (df_copy['condition'] == 1)
+    
+    # Değişim noktalarının indekslerini bulalım
+    change_indices = df_copy[condition_change].index.tolist()
+    
+    # Her değişimden önce n_rows kadar satırı 2 ile değiştirelim
+    for idx in change_indices:
+        # n_rows kadar geriye gidelim, ancak negatif indeks oluşmamasına dikkat edelim
+        start_idx = max(0, idx - n_rows)
+        
+        # Sadece condition değeri 0 olan satırları 2 ile değiştirelim
+        for i in range(start_idx, idx):
+            if df_copy.loc[i, 'condition'] == 0:
+                df_copy.loc[i, 'condition'] = 2
+    
+    return df_copy"""
+
+
+def group_rows_by_condition(df, group_size=400): # tekrar yazılacak
+
+    total_rows = len(df)
+
+    num_groups = int(np.ceil(total_rows / group_size))
+    
+    result_data = []
+    
+    for i in range(num_groups):
+        # Mevcut grubu alıyoruz
+        start_idx = i * group_size
+        end_idx = min((i + 1) * group_size, total_rows)
+        current_group = df.iloc[start_idx:end_idx]
+
+
+
+        
+        # Gruptaki condition değerlerini kontrol ediyoruz
+        if 1 in current_group['condition'].values:
+            group_condition = 1
+        else:
+            group_condition = 0
+        
+        # Grubun ortalama proba değerini hesaplıyoruz
+        group_proba = current_group['proba'].mean()
+        
+        # Yeni satırı sonuç listesine ekliyoruz
+        result_data.append({
+            'group_id': i,
+            'start_row': start_idx,
+            'end_row': end_idx - 1,
+            'row_count': end_idx - start_idx,
+            'proba': group_proba,
+            'condition': group_condition
+        })
+    
+    # Sonuç listesini DataFrame'e dönüştürüyoruz
+    result_df = pd.DataFrame(result_data)
+    
+    return result_df
+
+
+
+def get_the_probabilities_with_logistic_regression(df, n1, n2, n3, n4, n5, n6, n7, n8):
+
+    df1 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f1_start, "backward", n1), adjust_datetime(f1_finish, "forward", n2))
+    df2 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f2_start, "backward", n3), adjust_datetime(f2_finish, "forward", n4))
+    df3 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f3_start, "backward", n5), adjust_datetime(f3_finish, "forward", n6))
+    df4 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f4_start, "backward", n7), adjust_datetime(f4_finish, "forward", n8))
+
+    df_log_reg_train = pd.concat([df1, df2, df3], ignore_index=True).copy()
+    df_log_reg_test = df4.copy()
+
+    y_train = df_log_reg_train["condition"]
+    X_train=  df_log_reg_train.drop("condition", axis='columns')
+    X_train = X_train.drop("timestamp", axis= "columns")
+
+    y_test = df_log_reg_test["condition"]
+    X_test=  df_log_reg_test.drop("condition", axis='columns')
+    X_test = X_test.drop("timestamp", axis= "columns")
+
+
+    model = LogisticRegression()
+    model.fit(X_train, y_train)
+
+    y_proba = model.predict_proba(X_test)[:, 1]
+
+    return y_proba, y_test
+
 
 
 
