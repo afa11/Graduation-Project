@@ -246,6 +246,9 @@ def apply_random_forest_and_get_results(df, target, seed=10):
     print(f"F1 Score: {f1:.4f}")
     print("Confusion Matrix:")
     print(cm)
+
+    print(pd.DataFrame({'Feature': X.columns, 'Importance': model.feature_importances_}).sort_values('Importance', ascending=False) )
+
     
     return model, accuracy
 

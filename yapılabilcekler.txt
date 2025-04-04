@@ -44,3 +44,9 @@ df3 = mpt.change_the_values_by_applying_a_time_filter(df3c, "2020-07-15 13:00:00
 
 
 ofnoıfofıd
+
+
+
+1- belli bir süre öncesini * bu kısım zor kaç dakika kaç saat iyi olur bulmak* bozulma öncesi zaman diycez ve onu predict edicez
+
+2 - kalan süre hesabı yapıcaz oradan 2 saat önceleri olanlara sinyal vericez
