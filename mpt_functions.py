@@ -349,7 +349,7 @@ def group_rows_by_condition(df, group_size=400): # tekrar yazılacak
 
 
 
-def get_the_probabilities_with_logistic_regression(df, n1, n2, n3, n4, n5, n6, n7, n8):
+def get_the_probabilities_with_logistic_regression(df, n1, n2, n3, n4, n5, n6, n7, n8, printt):
 
     df1 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f1_start, "backward", n1), adjust_datetime(f1_finish, "forward", n2))
     df2 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f2_start, "backward", n3), adjust_datetime(f2_finish, "forward", n4))
@@ -360,20 +360,27 @@ def get_the_probabilities_with_logistic_regression(df, n1, n2, n3, n4, n5, n6, n
     df_log_reg_test = df4.copy()
 
     y_train = df_log_reg_train["condition"]
-    X_train=  df_log_reg_train.drop("condition", axis='columns')
-    X_train = X_train.drop("timestamp", axis= "columns")
+    X_train = df_log_reg_train.drop(["condition", "timestamp"], axis=1)
 
     y_test = df_log_reg_test["condition"]
-    X_test=  df_log_reg_test.drop("condition", axis='columns')
-    X_test = X_test.drop("timestamp", axis= "columns")
-
+    X_test = df_log_reg_test.drop(["condition", "timestamp"], axis=1)
 
     model = LogisticRegression()
     model.fit(X_train, y_train)
 
+    feature_names = X_train.columns
+    coef_df = pd.DataFrame(model.coef_[0], index=feature_names, columns=['Coefficient'])
+    coef_df_sorted = coef_df.reindex(coef_df['Coefficient'].abs().sort_values(ascending=False).index)
+
+    if printt == "yes":
+
+        print(coef_df_sorted)
+        print("Intercept:", model.intercept_[0])
+
     y_proba = model.predict_proba(X_test)[:, 1]
 
     return y_proba, y_test
+
 
 
 
