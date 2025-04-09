@@ -348,7 +348,7 @@ def group_rows_by_condition(df, group_size=400): # tekrar yazılacak
     return result_df
 
 
-
+"""
 def get_the_probabilities_with_logistic_regression(df, n1, n2, n3, n4, n5, n6, n7, n8, printt):
 
     df1 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f1_start, "backward", n1), adjust_datetime(f1_finish, "forward", n2))
@@ -379,10 +379,74 @@ def get_the_probabilities_with_logistic_regression(df, n1, n2, n3, n4, n5, n6, n
 
     y_proba = model.predict_proba(X_test)[:, 1]
 
-    return y_proba, y_test
+    return y_proba, y_test"""
 
 
 
 
+
+
+def get_the_probabilities_with_logistic_regression(df, n1, n2, n3, n4, n5, n6, n7, n8, printt):
+
+    df1 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f1_start, "backward", n1), adjust_datetime(f1_finish, "forward", n2))
+    df2 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f2_start, "backward", n3), adjust_datetime(f2_finish, "forward", n4))
+    df3 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f3_start, "backward", n5), adjust_datetime(f3_finish, "forward", n6))
+    df4 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f4_start, "backward", n7), adjust_datetime(f4_finish, "forward", n8))
+    
+    df_log_reg_train = pd.concat([df1, df2, df3], ignore_index=True).copy()
+    df_log_reg_test = df4.copy()
+    
+    y_train = df_log_reg_train["condition"]
+    X_train = df_log_reg_train.drop(["condition", "timestamp"], axis=1)
+    
+    y_test = df_log_reg_test["condition"]
+    X_test = df_log_reg_test.drop(["condition", "timestamp"], axis=1)
+    
+    model = LogisticRegression()
+    model.fit(X_train, y_train)
+    
+    # Calculate p-values
+    from scipy import stats
+    
+    # Get the standard errors
+    predictions = model.predict(X_train)
+    residuals = y_train - predictions
+    
+    # Calculate variance residual and standard error
+    mse = np.sum(residuals**2) / (len(y_train) - X_train.shape[1] - 1)
+    var_coef = mse * np.linalg.inv(np.dot(X_train.T, X_train)).diagonal()
+    se_coef = np.sqrt(var_coef)
+    
+    # Calculate z-scores and p-values
+    z_scores = model.coef_[0] / se_coef
+    p_values = [2 * (1 - stats.norm.cdf(abs(z))) for z in z_scores]
+    
+    # Calculate R-squared
+    from sklearn.metrics import r2_score
+    y_pred = model.predict(X_train)
+    r_squared = r2_score(y_train, y_pred)
+    
+    # Calculate F-value
+    from sklearn.metrics import mean_squared_error
+    mse_model = mean_squared_error(y_train, y_pred)
+    mse_baseline = np.var(y_train)
+    f_value = (mse_baseline - mse_model) / mse_model * (len(y_train) - X_train.shape[1] - 1) / X_train.shape[1]
+    
+    feature_names = X_train.columns
+    coef_df = pd.DataFrame({
+        'Coefficient': model.coef_[0],
+        'p_value': p_values
+    }, index=feature_names)
+    
+    coef_df_sorted = coef_df.reindex(coef_df['Coefficient'].abs().sort_values(ascending=False).index)
+    
+    if printt == "yes":
+        print(coef_df_sorted)
+        print("Intercept:", model.intercept_[0])
+        print("R-squared:", r_squared)
+    
+    y_proba = model.predict_proba(X_test)[:, 1]
+    
+    return y_proba, y_test, p_values, r_squared, f_value
 
 
