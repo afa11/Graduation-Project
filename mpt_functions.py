@@ -386,7 +386,7 @@ def get_the_probabilities_with_logistic_regression(df, n1, n2, n3, n4, n5, n6, n
 
 
 
-def get_the_probabilities_with_logistic_regression(df, n1, n2, n3, n4, n5, n6, n7, n8, printt):
+def get_the_probabilities_with_logistic_regressionn(df, n1, n2, n3, n4, n5, n6, n7, n8, printt):
 
     df1 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f1_start, "backward", n1), adjust_datetime(f1_finish, "forward", n2))
     df2 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f2_start, "backward", n3), adjust_datetime(f2_finish, "forward", n4))
@@ -443,7 +443,9 @@ def get_the_probabilities_with_logistic_regression(df, n1, n2, n3, n4, n5, n6, n
     if printt == "yes":
         print(coef_df_sorted)
         print("Intercept:", model.intercept_[0])
-        print("R-squared:", r_squared)
+        print("R-squareddd:", r_squared)
+        print("F-Value:", f_value)
+
     
     y_proba = model.predict_proba(X_test)[:, 1]
     
