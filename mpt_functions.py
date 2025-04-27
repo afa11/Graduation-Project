@@ -605,3 +605,83 @@ def group_rows_by_condition_sliding(df, group_size=400, slide_amount=100):
     result_df = pd.DataFrame(result_data)
     
     return result_df
+
+
+
+
+
+def get_the_probabilities_with_random_forest_new(df, n1, n2, n3, n4, n5, n6, n7, n8, printt, use_df1="yes", use_df2="yes", use_df3="yes", use_df4="no"):
+    # Create all dataframes as before
+    df1 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f1_start, "backward", n1), adjust_datetime(f1_finish, "forward", n2))
+    df2 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f2_start, "backward", n3), adjust_datetime(f2_finish, "forward", n4))
+    df3 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f3_start, "backward", n5), adjust_datetime(f3_finish, "forward", n6))
+    df4 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f4_start, "backward", n7), adjust_datetime(f4_finish, "forward", n8))
+    
+    # Create train and test dataframes based on the parameters
+    train_dfs = []
+    test_dfs = []
+    
+    if use_df1 == "yes":
+        train_dfs.append(df1)
+    else:
+        test_dfs.append(df1)
+        
+    if use_df2 == "yes":
+        train_dfs.append(df2)
+    else:
+        test_dfs.append(df2)
+    
+    if use_df3 == "yes":
+        train_dfs.append(df3)
+    else:
+        test_dfs.append(df3)
+    
+    if use_df4 == "yes":
+        train_dfs.append(df4)
+    else:
+        test_dfs.append(df4)
+    
+    # Concatenate dataframes for training and testing
+    df_rf_train = pd.concat(train_dfs, ignore_index=True).copy() if train_dfs else pd.DataFrame()
+    df_rf_test = pd.concat(test_dfs, ignore_index=True).copy() if test_dfs else pd.DataFrame()
+    
+    # Continue with the existing code
+    y_train = df_rf_train["condition"]
+    X_train = df_rf_train.drop(["condition", "timestamp"], axis=1)
+    
+    y_test = df_rf_test["condition"]
+    X_test = df_rf_test.drop(["condition", "timestamp"], axis=1)
+    
+    from sklearn.ensemble import RandomForestClassifier
+    model = RandomForestClassifier(random_state=42)
+    model.fit(X_train, y_train)
+    
+    # Feature importances
+    feature_importances = model.feature_importances_
+    feature_names = X_train.columns
+    
+    importance_df = pd.DataFrame({
+        'Importance': feature_importances
+    }, index=feature_names)
+    
+    importance_df_sorted = importance_df.sort_values(by='Importance', ascending=False)
+    
+    # Calculate R-squared (not perfect for classification but can be used on predict_proba output)
+    from sklearn.metrics import r2_score
+    y_pred_proba_train = model.predict_proba(X_train)[:, 1]
+    r_squared = r2_score(y_train, y_pred_proba_train)
+    
+    # Calculate F-value-like metric (optional; Random Forests don't naturally have it, but let's keep the spirit)
+    from sklearn.metrics import mean_squared_error
+    mse_model = mean_squared_error(y_train, y_pred_proba_train)
+    mse_baseline = np.var(y_train)
+    f_value_like = (mse_baseline - mse_model) / mse_model * (len(y_train) - X_train.shape[1] - 1) / X_train.shape[1]
+    
+    if printt == "yes":
+        print(importance_df_sorted)
+        print("R-squareddd:", r_squared)
+        print("F-Value Like:", f_value_like)
+    
+    y_proba = model.predict_proba(X_test)[:, 1]
+    
+    return y_proba, y_test, feature_importances, r_squared, f_value_like
