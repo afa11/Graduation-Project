@@ -685,3 +685,93 @@ def get_the_probabilities_with_random_forest_new(df, n1, n2, n3, n4, n5, n6, n7,
     y_proba = model.predict_proba(X_test)[:, 1]
     
     return y_proba, y_test, feature_importances, r_squared, f_value_like
+
+#İŞE YARAMAZSA AŞAĞIYI SİL
+
+import pandas as pd
+import numpy as np
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import r2_score, mean_squared_error
+from collections import defaultdict
+
+def get_the_probabilities_with_rf_logreg_leaf(df, n1, n2, n3, n4, n5, n6, n7, n8,
+                                              printt="no", use_df1="yes", use_df2="yes", use_df3="yes", use_df4="no"):
+    # Timestamp'lara göre filtreleme yapılmaktadır.
+    df1 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f1_start, "backward", n1), adjust_datetime(f1_finish, "forward", n2))
+    df2 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f2_start, "backward", n3), adjust_datetime(f2_finish, "forward", n4))
+    df3 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f3_start, "backward", n5), adjust_datetime(f3_finish, "forward", n6))
+    df4 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f4_start, "backward", n7), adjust_datetime(f4_finish, "forward", n8))
+    
+    # Eğitim ve test setleri belirlenmektedir.
+    train_dfs, test_dfs = [], []
+    if use_df1 == "yes": train_dfs.append(df1)
+    else: test_dfs.append(df1)
+    if use_df2 == "yes": train_dfs.append(df2)
+    else: test_dfs.append(df2)
+    if use_df3 == "yes": train_dfs.append(df3)
+    else: test_dfs.append(df3)
+    if use_df4 == "yes": train_dfs.append(df4)
+    else: test_dfs.append(df4)
+    
+    df_rf_train = pd.concat(train_dfs, ignore_index=True) if train_dfs else pd.DataFrame()
+    df_rf_test = pd.concat(test_dfs, ignore_index=True) if test_dfs else pd.DataFrame()
+    
+    y_train = df_rf_train["condition"].values
+    X_train = df_rf_train.drop(["condition", "timestamp"], axis=1).values
+    y_test = df_rf_test["condition"].values
+    X_test = df_rf_test.drop(["condition", "timestamp"], axis=1).values
+    feature_names = df_rf_train.drop(["condition", "timestamp"], axis=1).columns
+
+    # Random Forest modeli segmentasyon için eğitilmektedir.
+    rf = RandomForestClassifier(n_estimators=100, max_depth=5, random_state=42)
+    rf.fit(X_train, y_train)
+
+    # Eğitim verisindeki yaprak indeksleri alınmaktadır.
+    train_leaf_indices = rf.apply(X_train)  # shape: (n_samples, n_trees)
+    test_leaf_indices = rf.apply(X_test)    # shape: (n_samples, n_trees)
+
+    # Her yaprak için logistic regression modelleri eğitilmektedir.
+    leaf_models = defaultdict(dict)
+    for tree_idx in range(train_leaf_indices.shape[1]):
+        for leaf_idx in np.unique(train_leaf_indices[:, tree_idx]):
+            mask = train_leaf_indices[:, tree_idx] == leaf_idx
+            X_leaf = X_train[mask]
+            y_leaf = y_train[mask]
+            
+            if len(np.unique(y_leaf)) < 2:
+                continue  # Logistic regression yapılamaz
+            
+            model = LogisticRegression()
+            model.fit(X_leaf, y_leaf)
+            leaf_models[tree_idx][leaf_idx] = model
+
+    # Test seti için olasılık tahmini yapılmaktadır.
+    y_proba = np.zeros(X_test.shape[0])
+    for tree_idx in range(test_leaf_indices.shape[1]):
+        for leaf_idx in np.unique(test_leaf_indices[:, tree_idx]):
+            mask = test_leaf_indices[:, tree_idx] == leaf_idx
+            X_leaf_test = X_test[mask]
+            model = leaf_models[tree_idx].get(leaf_idx)
+            if model:
+                y_proba[mask] += model.predict_proba(X_leaf_test)[:, 1]
+    
+    y_proba /= test_leaf_indices.shape[1]  # Tüm ağaçların ortalaması alınmaktadır.
+
+    # Train seti üzerinden feature importance alınmaktadır (isteğe bağlı).
+    importances = rf.feature_importances_
+    importance_df = pd.DataFrame({'Importance': importances}, index=feature_names).sort_values(by='Importance', ascending=False)
+
+    # Performans metrikleri hesaplanmaktadır.
+    y_pred_proba_train = rf.predict_proba(X_train)[:, 1]
+    r_squared = r2_score(y_train, y_pred_proba_train)
+    mse_model = mean_squared_error(y_train, y_pred_proba_train)
+    mse_baseline = np.var(y_train)
+    f_value_like = (mse_baseline - mse_model) / mse_model * (len(y_train) - X_train.shape[1] - 1) / X_train.shape[1]
+    
+    if printt == "yes":
+        print(importance_df)
+        print("R-squared:", r_squared)
+        print("F-Value Like:", f_value_like)
+
+    return y_proba, y_test, importances, r_squared, f_value_like
