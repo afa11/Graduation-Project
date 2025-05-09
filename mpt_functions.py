@@ -671,11 +671,6 @@ def get_the_probabilities_with_random_forest_new(number_of_estimators, max_featu
 
     model.fit(X_train, y_train)
 
-
-
-
-
-    model.fit(X_train, y_train)
     
     # Feature importances
     feature_importances = model.feature_importances_
@@ -689,6 +684,9 @@ def get_the_probabilities_with_random_forest_new(number_of_estimators, max_featu
     
     # Calculate R-squared (not perfect for classification but can be used on predict_proba output)
     from sklearn.metrics import r2_score
+    
+
+    
     y_pred_proba_train = model.predict_proba(X_train)[:, 1]
     r_squared = r2_score(y_train, y_pred_proba_train)
     
@@ -703,8 +701,17 @@ def get_the_probabilities_with_random_forest_new(number_of_estimators, max_featu
         print("R-squareddd:", r_squared)
         print("F-Value Like:", f_value_like)
     
+
+    print("model preditions")
+    print(model.predict(X_test))
+
+
+
+
     y_proba = model.predict_proba(X_test)[:, 1]
-    
+
+    print("model proba")
+    print(y_proba)
     return y_proba, y_test, feature_importances, r_squared, f_value_like
 
 #İŞE YARAMAZSA AŞAĞIYI SİL
@@ -782,6 +789,15 @@ def get_the_probabilities_with_rf_logreg_leaf(df, n1, n2, n3, n4, n5, n6, n7, n8
     # Train seti üzerinden feature importance alınmaktadır (isteğe bağlı).
     importances = rf.feature_importances_
     importance_df = pd.DataFrame({'Importance': importances}, index=feature_names).sort_values(by='Importance', ascending=False)
+
+
+
+    print("model preditions")
+    print(model.predict(X_test))
+
+    print("model proba")
+    print(y_proba)
+
 
     # Performans metrikleri hesaplanmaktadır.
     y_pred_proba_train = rf.predict_proba(X_train)[:, 1]
