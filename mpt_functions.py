@@ -610,7 +610,7 @@ def group_rows_by_condition_sliding(df, group_size=400, slide_amount=100):
 
 
 
-def get_the_probabilities_with_random_forest_new(number_of_estimators, max_features, df, n1, n2, n3, n4, n5, n6, n7, n8, printt, use_df1="yes", use_df2="yes", use_df3="yes", use_df4="no"):
+def get_the_probabilities_with_random_forest_new(number_of_estimators, max_features, depth, split, leaf, df, n1, n2, n3, n4, n5, n6, n7, n8, printt, use_df1="yes", use_df2="yes", use_df3="yes", use_df4="no"):
     # Create all dataframes as before
     df1 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f1_start, "backward", n1), adjust_datetime(f1_finish, "forward", n2))
     df2 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f2_start, "backward", n3), adjust_datetime(f2_finish, "forward", n4))
@@ -657,10 +657,17 @@ def get_the_probabilities_with_random_forest_new(number_of_estimators, max_featu
 
 
     model = RandomForestClassifier(
-    n_estimators= number_of_estimators,
-    max_features= max_features,     # tüm feature'lara bak
+    n_estimators=number_of_estimators,
+    max_features=max_features,
+
+    max_depth=depth,
+    min_samples_split=split,
+    min_samples_leaf=leaf,   # tüm feature'lara bak
     bootstrap=False,       # örnekleme yok
     random_state=42)
+
+
+
 
     model.fit(X_train, y_train)
 
