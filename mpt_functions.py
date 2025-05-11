@@ -610,7 +610,35 @@ def group_rows_by_condition_sliding(df, group_size=400, slide_amount=100):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def get_the_probabilities_with_random_forest_new(number_of_estimators, max_features, depth, split, leaf, df, n1, n2, n3, n4, n5, n6, n7, n8, printt, use_df1="yes", use_df2="yes", use_df3="yes", use_df4="no"):
+
+
+    import numpy as np
+
+
+
+
     # Create all dataframes as before
     df1 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f1_start, "backward", n1), adjust_datetime(f1_finish, "forward", n2))
     df2 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f2_start, "backward", n3), adjust_datetime(f2_finish, "forward", n4))
@@ -702,17 +730,95 @@ def get_the_probabilities_with_random_forest_new(number_of_estimators, max_featu
         print("F-Value Like:", f_value_like)
     
 
-    print("model preditions")
-    print(model.predict(X_test))
+    
 
 
+
+
+    rf = RandomForestClassifier(
+    n_estimators=number_of_estimators,
+    max_features=max_features,
+    max_depth=depth,
+    min_samples_split=split,
+    min_samples_leaf=leaf,
+    random_state=42
+                        )       
+    rf.fit(X_train, y_train)
+
+    # Plot a single tree with probability-based node values
+
+    import matplotlib.pyplot as plt
+    from sklearn.tree import plot_tree
+    from sklearn.ensemble import RandomForestClassifier
 
 
     y_proba = model.predict_proba(X_test)[:, 1]
 
+
+    print("model preditions")
+    print(model.predict(X_test))
+
     print("model proba")
     print(y_proba)
-    return y_proba, y_test, feature_importances, r_squared, f_value_like
+
+    df_new = pd.DataFrame()
+
+    df_new["model_predictions"] = model.predict(X_test)
+
+    df_new["model_probablities"] = y_proba
+
+    print(df_new)
+
+
+
+
+    from sklearn.tree import plot_tree
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+
+    class_names=['0', '1']
+
+
+    estimator = rf.estimators_[0] # a tree index would be fine
+    tree = estimator.tree_
+    # Calculate probabilities
+    probs = tree.value[:, 0] / np.sum(tree.value[:, 0], axis=1, keepdims=True)
+    # Build custom labels with probabilities
+    labels = []
+    for i in range(tree.node_count):
+        samples = int(np.sum(tree.value[i][0]))
+        values = tree.value[i][0].astype(int)
+        gini = tree.impurity[i]
+
+        prob_text = ", ".join([f"{class_names[j]}: {probs[i][j]:.2f}" for j in range(len(class_names))])
+        majority_class = class_names[np.argmax(probs[i])]
+        label = (f"gini = {gini:.2f}\n"
+                    f"samples = {samples}\n"
+                    f"value = {values.tolist()}\n"
+                    f"{prob_text}\n"
+                    f"class = {majority_class}")
+        labels.append(label)
+
+    # Plot tree with custom labels
+    plt.figure(figsize=(25, 12))
+    plot_tree(
+            estimator,
+            feature_names=feature_names,
+            class_names=class_names,
+            filled=True,
+            rounded=True,
+            node_ids=False,
+            proportion=False,
+            impurity=False,
+            label='root',
+            precision=2,
+            fontsize=8)
+    
+    plt.title("Decision Tree Visualization with Probabilities")
+    plt.show()
+
+    return y_proba, y_test, importance_df_sorted, r_squared, f_value_like
 
 #İŞE YARAMAZSA AŞAĞIYI SİL
 
@@ -722,6 +828,27 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import r2_score, mean_squared_error
 from collections import defaultdict
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def get_the_probabilities_with_rf_logreg_leaf(df, n1, n2, n3, n4, n5, n6, n7, n8,
                                               printt="no", use_df1="yes", use_df2="yes", use_df3="yes", use_df4="no"):
@@ -894,5 +1021,365 @@ def get_the_probabilities_with_single_tree(df, n1, n2, n3, n4, n5, n6, n7, n8, p
     plt.show()
 
     y_proba = model.predict_proba(X_test)[:, 1]
+
+    return y_proba, y_test, feature_importances, r_squared, f_value_like
+
+
+
+
+
+
+
+
+
+
+def get_the_probabilities_with_random_forest_new_visualized(
+        
+    number_of_estimators, max_features, depth, split, leaf, 
+    df, n1, n2, n3, n4, n5, n6, n7, n8, 
+    printt, use_df1, use_df2, use_df3, use_df4,
+    f1_start=None, f1_finish=None, f2_start=None, f2_finish=None, 
+    f3_start=None, f3_finish=None, f4_start=None, f4_finish=None,
+    visualize=True
+):
+    """
+    Train a Random Forest classifier and predict probabilities on test data.
+    
+    Args:
+        number_of_estimators: Number of trees in the forest
+        max_features: Number of features to consider for best split
+        depth: Maximum depth of trees
+        split: Minimum samples required to split an internal node
+        leaf: Minimum samples required to be at a leaf node
+        df: Input DataFrame
+        n1-n8: Time adjustment parameters for each dataframe
+        printt: Whether to print results
+        use_df1-use_df4: Whether to use each dataframe for training or testing
+        f1_start-f4_finish: Start and end timestamps for each dataframe
+        visualize: Whether to visualize the model (default True)
+        
+    Returns:
+        Tuple of (probabilities, true labels, feature importances, R-squared, F-value)
+    """
+    # Create all dataframes
+    df1 = filter_rows_between_the_given_timestamps(
+        df, adjust_datetime(f1_start, "backward", n1), adjust_datetime(f1_finish, "forward", n2)
+    )
+    df2 = filter_rows_between_the_given_timestamps(
+        df, adjust_datetime(f2_start, "backward", n3), adjust_datetime(f2_finish, "forward", n4)
+    )
+    df3 = filter_rows_between_the_given_timestamps(
+        df, adjust_datetime(f3_start, "backward", n5), adjust_datetime(f3_finish, "forward", n6)
+    )
+    df4 = filter_rows_between_the_given_timestamps(
+        df, adjust_datetime(f4_start, "backward", n7), adjust_datetime(f4_finish, "forward", n8)
+    )
+    
+    # Create train and test dataframes based on the parameters
+    train_dfs = []
+    test_dfs = []
+    
+    # Assign dataframes to training or testing based on parameters
+    if use_df1 == "yes":
+        train_dfs.append(df1)
+    else:
+        test_dfs.append(df1)
+    
+    if use_df2 == "yes":
+        train_dfs.append(df2)
+    else:
+        test_dfs.append(df2)
+    
+    if use_df3 == "yes":
+        train_dfs.append(df3)
+    else:
+        test_dfs.append(df3)
+    
+    if use_df4 == "yes":
+        train_dfs.append(df4)
+    else:
+        test_dfs.append(df4)
+    
+    # Concatenate dataframes for training and testing
+    df_rf_train = pd.concat(train_dfs, ignore_index=True).copy() if train_dfs else pd.DataFrame()
+    df_rf_test = pd.concat(test_dfs, ignore_index=True).copy() if test_dfs else pd.DataFrame()
+    
+    # Prepare features and target variables
+    y_train = df_rf_train["condition"]
+    X_train = df_rf_train.drop(["condition", "timestamp"], axis=1)
+    
+    y_test = df_rf_test["condition"]
+    X_test = df_rf_test.drop(["condition", "timestamp"], axis=1)
+    
+    # Create and train the Random Forest model
+    model = RandomForestClassifier(
+        n_estimators=number_of_estimators,
+        max_features=max_features,
+        max_depth=depth,
+        min_samples_split=split,
+        min_samples_leaf=leaf,
+        bootstrap=False,
+        random_state=42
+    )
+    
+    model.fit(X_train, y_train)
+    
+    # Get feature importances
+    feature_importances = model.feature_importances_
+    feature_names = X_train.columns
+    
+    importance_df = pd.DataFrame({
+        'Importance': feature_importances
+    }, index=feature_names)
+    
+    importance_df_sorted = importance_df.sort_values(by='Importance', ascending=False)
+    
+    # Calculate R-squared
+    y_pred_proba_train = model.predict_proba(X_train)[:, 1]
+    r_squared = r2_score(y_train, y_pred_proba_train)
+    
+    # Calculate F-value-like metric
+    mse_model = mean_squared_error(y_train, y_pred_proba_train)
+    mse_baseline = np.var(y_train)
+    f_value_like = (mse_baseline - mse_model) / mse_model * (len(y_train) - X_train.shape[1] - 1) / X_train.shape[1]
+    
+    # Get predictions and probabilities
+    y_pred = model.predict(X_test)
+    y_proba = model.predict_proba(X_test)[:, 1]
+    
+    # Print results if requested
+    if printt == "yes":
+        print(importance_df_sorted)
+        print("R-squared:", r_squared)
+        print("F-Value Lcike:", f_value_like)
+        print("Model predictions:", y_pred)
+        print("Model probabilities:", y_proba)
+    
+    # Visualize the model if requested
+    if visualize and len(X_train) > 0 and len(X_test) > 0:
+        visualize_random_forest(model, X_train, y_train, X_test, y_test, y_proba, importance_df_sorted)
+    
+    return y_proba, y_test, feature_importances, r_squared, f_value_like
+
+def visualize_random_forest(model, X_train, y_train, X_test, y_test, y_proba, feature_importance):
+    """
+    Visualize the Random Forest model, including a sample tree, feature importances,
+    and probability distributions.
+    
+    Args:
+        model: Trained Random Forest model
+        X_train: Training features
+        y_train: Training labels
+        X_test: Test features
+        y_test: Test labels
+        y_proba: Predicted probabilities
+        feature_importance: DataFrame of feature importances
+    """
+    # Create a figure with subplots
+    plt.figure(figsize=(20, 16))
+    
+    # 1. Plot feature importances
+    plt.subplot(2, 2, 1)
+    top_features = feature_importance.head(10)  # Top 10 features
+    sns.barplot(x=top_features['Importance'], y=top_features.index)
+    plt.title('Top 10 Feature Importances')
+    plt.xlabel('Importance')
+    plt.tight_layout()
+    
+    # 2. Plot a single tree from the forest (for visualization purposes)
+    plt.subplot(2, 2, 2)
+    # Get a single tree from the forest
+    estimator = model.estimators_[0]
+
+    plot_tree(
+        estimator,
+        feature_names=X_train.columns,
+        class_names=[str(c) for c in model.classes_],
+        filled=True,
+        rounded=True,
+        max_depth=3,  # Limit depth for visibility
+        fontsize=6
+    )
+    plt.title('Sample Decision Tree from Random Forest (Limited to Depth 3)')
+    plt.tight_layout()
+    
+    # 3. Plot probability distribution
+    plt.subplot(2, 2, 3)
+    test_df = pd.DataFrame({
+        'True Label': y_test,
+        'Probability': y_proba
+    })
+    
+    # Visualize probabilities grouped by true label
+    sns.histplot(data=test_df, x='Probability', hue='True Label', bins=20, multiple='stack')
+    plt.axvline(x=0.5, color='red', linestyle='--')
+    plt.title('Probability Distribution by True Label')
+    plt.xlabel('Predicted Probability of Positive Class')
+    plt.ylabel('Count')
+    plt.tight_layout()
+    
+    # 4. Plot how predictions change with tree count (ensemble learning visualization)
+    plt.subplot(2, 2, 4)
+    
+    # We'll track how predictions stabilize as we add more trees
+    tree_counts = [1, 2, 3, 5, 10, 20, 50, min(100, len(model.estimators_))]
+    tree_counts = [t for t in tree_counts if t <= len(model.estimators_)]
+    
+    avg_probs = []
+    for n_trees in tree_counts:
+        # Get predictions from the first n_trees
+        tree_preds = []
+        for i in range(n_trees):
+            tree = model.estimators_[i]
+            # Get the probability of class 1 from this single tree
+            tree_prob = tree.predict_proba(X_test)[:, 1]
+            tree_preds.append(tree_prob)
+        
+        # Average the predictions
+        avg_prob = np.mean(tree_preds, axis=0)
+        avg_probs.append(avg_prob)
+    
+    # Select a subset of test samples for visualization (first 10)
+    n_samples = min(10, len(X_test))
+    for i in range(n_samples):
+        probs_for_sample = [probs[i] for probs in avg_probs]
+        plt.plot(tree_counts, probs_for_sample, marker='o', label=f'Sample {i+1}')
+    
+    plt.axhline(y=0.5, color='red', linestyle='--')
+    plt.xscale('log')
+    plt.title('How Predictions Stabilize with More Trees')
+    plt.xlabel('Number of Trees')
+    plt.ylabel('Predicted Probability')
+    if n_samples <= 5:  # Only show legend if few samples
+        plt.legend()
+    plt.tight_layout()
+    
+    plt.savefig('random_forest_visualization.png')
+    plt.show()
+    
+    # Print textual representation of the tree for understanding
+    print("Text representation of a sample tree (limited depth):")
+    tree_text = export_text(
+        estimator,
+        feature_names=list(X_train.columns),
+        max_depth=3
+    )
+    print(tree_text)
+    
+    # Explain how the Random Forest calculates probabilities
+    print("\nHow Random Forest Calculates Probabilities:")
+    print("1. Each decision tree in the forest makes a prediction (0 or 1)")
+    print("2. For classification, the probability is the fraction of trees voting for a particular class")
+    print("3. For example, if 75 out of 100 trees predict class 1, the probability is 0.75")
+    print("4. The final prediction is based on majority voting (threshold of 0.5)")
+    
+    # Show how a single prediction is made
+    if len(X_test) > 0:
+        sample_idx = 0  # First test sample
+        sample_features = X_test.iloc[sample_idx:sample_idx+1]
+        sample_proba = y_proba[sample_idx]
+        sample_true = y_test.iloc[sample_idx]
+        
+        print(f"\nExample prediction for test sample {sample_idx}:")
+        print(f"True label: {sample_true}")
+        print(f"Predicted probability: {sample_proba:.4f}")
+        print(f"Final prediction: {1 if sample_proba > 0.5 else 0}")
+        
+        # Count votes from individual trees
+        tree_votes = []
+        for tree in model.estimators_:
+            vote = tree.predict(sample_features)[0]
+            tree_votes.append(vote)
+            
+        print(f"Trees voting for class 1: {sum(tree_votes)} out of {len(tree_votes)}")
+        print(f"Trees voting for class 0: {len(tree_votes) - sum(tree_votes)} out of {len(tree_votes)}")
+        print(f"Probability calculation: {sum(tree_votes)}/{len(tree_votes)} = {sum(tree_votes)/len(tree_votes):.4f}")
+
+
+
+
+
+
+
+def get_rf_probabilities_with_graph(
+    number_of_estimators, max_features, depth, split, leaf, 
+    df, n1, n2, n3, n4, n5, n6, n7, n8, 
+    printt, use_df1="yes", use_df2="yes", use_df3="yes", use_df4="no"
+):
+    import pandas as pd  # <- ADD THIS
+    import numpy as np
+    import matplotlib.pyplot as plt
+    from sklearn.ensemble import RandomForestClassifier
+    from sklearn.metrics import r2_score, mean_squared_error
+
+    # Rest of your function remains the same...
+
+    # Filter data for four time intervals
+    df1 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f1_start, "backward", n1), adjust_datetime(f1_finish, "forward", n2))
+    df2 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f2_start, "backward", n3), adjust_datetime(f2_finish, "forward", n4))
+    df3 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f3_start, "backward", n5), adjust_datetime(f3_finish, "forward", n6))
+    df4 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f4_start, "backward", n7), adjust_datetime(f4_finish, "forward", n8))
+
+    # Split into train and test sets
+    train_dfs, test_dfs = [], []
+    for use_flag, dfx in zip([use_df1, use_df2, use_df3, use_df4], [df1, df2, df3, df4]):
+        (train_dfs if use_flag == "yes" else test_dfs).append(dfx)
+
+    df_rf_train = pd.concat(train_dfs, ignore_index=True).copy() if train_dfs else pd.DataFrame()
+    df_rf_test = pd.concat(test_dfs, ignore_index=True).copy() if test_dfs else pd.DataFrame()
+
+    y_train = df_rf_train["condition"]
+    X_train = df_rf_train.drop(["condition", "timestamp"], axis=1)
+    y_test = df_rf_test["condition"]
+    X_test = df_rf_test.drop(["condition", "timestamp"], axis=1)
+
+    # Train Random Forest
+    from sklearn.ensemble import RandomForestClassifier
+    model = RandomForestClassifier(
+        n_estimators=number_of_estimators,
+        max_features=max_features,
+        max_depth=depth,
+        min_samples_split=split,
+        min_samples_leaf=leaf,
+        bootstrap=False,
+        random_state=42
+    )
+    model.fit(X_train, y_train)
+
+    # Feature importances
+    import pandas as pd
+    feature_importances = model.feature_importances_
+    feature_names = X_train.columns
+    importance_df_sorted = pd.DataFrame({'Importance': feature_importances}, index=feature_names).sort_values(by='Importance', ascending=False)
+
+    # Evaluation metrics
+    from sklearn.metrics import r2_score, mean_squared_error
+    import numpy as np
+    y_pred_proba_train = model.predict_proba(X_train)[:, 1]
+    r_squared = r2_score(y_train, y_pred_proba_train)
+    mse_model = mean_squared_error(y_train, y_pred_proba_train)
+    mse_baseline = np.var(y_train)
+    f_value_like = (mse_baseline - mse_model) / mse_model * (len(y_train) - X_train.shape[1] - 1) / X_train.shape[1]
+
+    if printt == "yes":
+        print(importance_df_sorted)
+        print("R-squared:", r_squared)
+        print("F-Value Like:", f_value_like)
+
+    # Predict probabilities on test set
+    y_proba = model.predict_proba(X_test)[:, 1]
+
+    # Plot probability bar chart
+    import matplotlib.pyplot as plt
+    plt.figure(figsize=(16, 6))
+    plt.bar(range(len(y_proba)), y_proba, color='skyblue', label='Predicted Probability')
+    plt.plot(range(len(y_test)), y_test.values, 'r.', label='True Label (Red Dots = Failures)')
+    plt.xlabel("Test Sample Index")
+    plt.ylabel("Predicted Probability of Failure")
+    plt.title("Random Forest: Failure Probabilities on Test Set")
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
 
     return y_proba, y_test, feature_importances, r_squared, f_value_like

@@ -1,0 +1,7 @@
+
+    n_estimators=number_of_estimators,
+    max_features=max_features,
+    max_depth=depth,
+    min_samples_split=split,
+    min_samples_leaf=leaf,   
+    bootstrap=False,       
