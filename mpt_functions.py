@@ -781,53 +781,59 @@ def get_the_probabilities_with_random_forest_new(number_of_estimators, max_featu
 
     def plottt():
 
-            class_names=['0', '1']
+        for i in range(5):
+                
+                class_names=['0', '1']
 
 
-            estimator = rf.estimators_[0] # a tree index would be fine
-            tree = estimator.tree_
-            # Calculate probabilities
-            probs = tree.value[:, 0] / np.sum(tree.value[:, 0], axis=1, keepdims=True)
-            # Build custom labels with probabilities
-            labels = []
-            for i in range(tree.node_count):
-                samples = int(np.sum(tree.value[i][0]))
-                values = tree.value[i][0].astype(int)
-                gini = tree.impurity[i]
+                estimator = rf.estimators_[i] # a tree index would be fine
+                tree = estimator.tree_
+                # Calculate probabilities
+                probs = tree.value[:, 0] / np.sum(tree.value[:, 0], axis=1, keepdims=True)
+                # Build custom labels with probabilities
+                labels = []
+                for i in range(tree.node_count):
+                    samples = int(np.sum(tree.value[i][0]))
+                    values = tree.value[i][0].astype(int)
+                    gini = tree.impurity[i]
 
-                prob_text = ", ".join([f"{class_names[j]}: {probs[i][j]:.2f}" for j in range(len(class_names))])
-                majority_class = class_names[np.argmax(probs[i])]
-                label = (f"gini = {gini:.2f}\n"
-                            f"samples = {samples}\n"
-                            f"value = {values.tolist()}\n"
-                            f"{prob_text}\n"
-                            f"class = {majority_class}")
-                labels.append(label)
+                    prob_text = ", ".join([f"{class_names[j]}: {probs[i][j]:.2f}" for j in range(len(class_names))])
+                    majority_class = class_names[np.argmax(probs[i])]
+                    label = (f"gini = {gini:.2f}\n"
+                                f"samples = {samples}\n"
+                                f"value = {values.tolist()}\n"
+                                f"{prob_text}\n"
+                                f"class = {majority_class}")
+                    labels.append(label)
 
-            # Plot tree with custom labels
-            plt.figure(figsize=(25, 12))
-            plot_tree(
-                    estimator,
-                    feature_names=feature_names,
-                    class_names=class_names,
-                    filled=True,
-                    rounded=True,
-                    node_ids=False,
-                    proportion=False,
-                    impurity=False,
-                    label='root',
-                    precision=2,
-                    fontsize=8)
+                # Plot tree with custom labels
+                plt.figure(figsize=(25, 12))
+                plot_tree(
+                        estimator,
+                        feature_names=feature_names,
+                        class_names=class_names,
+                        filled=True,
+                        rounded=True,
+                        node_ids=False,
+                        proportion=False,
+                        impurity=False,
+                        label='root',
+                        precision=2,
+                        fontsize=8)
+                
+                plt.title("Decision Tree Visualization with Probabilities")
+                plt.show()
+
             
-            plt.title("Decision Tree Visualization with Probabilities")
-            plt.show()
-
-            return y_proba, y_test, importance_df_sorted, r_squared, f_value_like
     
 
     if graph =="yes":
 
         plottt()
+
+
+
+    return y_proba, y_test, importance_df_sorted, r_squared, f_value_like
 
 #İŞE YARAMAZSA AŞAĞIYI SİL
 
@@ -1512,45 +1518,48 @@ def get_the_probabilities_with_random_forest_new_new(number_of_estimators, max_f
     
     # Define plotting function
     def plot_tree_visualization():
-        class_names=['0', '1']
-        
-        estimator = rf.estimators_[0]
-        tree = estimator.tree_
-        # Calculate probabilities
-        probs = tree.value[:, 0] / np.sum(tree.value[:, 0], axis=1, keepdims=True)
-        # Build custom labels with probabilities
-        labels = []
-        for i in range(tree.node_count):
-            samples = int(np.sum(tree.value[i][0]))
-            values = tree.value[i][0].astype(int)
-            gini = tree.impurity[i]
+            
+        for i in range(5):
 
-            prob_text = ", ".join([f"{class_names[j]}: {probs[i][j]:.2f}" for j in range(len(class_names))])
-            majority_class = class_names[np.argmax(probs[i])]
-            label = (f"gini = {gini:.2f}\n"
-                    f"samples = {samples}\n"
-                    f"value = {values.tolist()}\n"
-                    f"{prob_text}\n"
-                    f"class = {majority_class}")
-            labels.append(label)
+            class_names=['0', '1']
+            
+            estimator = rf.estimators_[i]
+            tree = estimator.tree_
+            # Calculate probabilities
+            probs = tree.value[:, 0] / np.sum(tree.value[:, 0], axis=1, keepdims=True)
+            # Build custom labels with probabilities
+            labels = []
+            for i in range(tree.node_count):
+                samples = int(np.sum(tree.value[i][0]))
+                values = tree.value[i][0].astype(int)
+                gini = tree.impurity[i]
 
-        # Plot tree with custom labels
-        plt.figure(figsize=(25, 12))
-        plot_tree(
-                estimator,
-                feature_names=feature_names,
-                class_names=class_names,
-                filled=True,
-                rounded=True,
-                node_ids=False,
-                proportion=False,
-                impurity=False,
-                label='root',
-                precision=2,
-                fontsize=8)
-        
-        plt.title("Decision Tree Visualization with Probabilities")
-        plt.show()
+                prob_text = ", ".join([f"{class_names[j]}: {probs[i][j]:.2f}" for j in range(len(class_names))])
+                majority_class = class_names[np.argmax(probs[i])]
+                label = (f"gini = {gini:.2f}\n"
+                        f"samples = {samples}\n"
+                        f"value = {values.tolist()}\n"
+                        f"{prob_text}\n"
+                        f"class = {majority_class}")
+                labels.append(label)
+
+            # Plot tree with custom labels
+            plt.figure(figsize=(25, 12))
+            plot_tree(
+                    estimator,
+                    feature_names=feature_names,
+                    class_names=class_names,
+                    filled=True,
+                    rounded=True,
+                    node_ids=False,
+                    proportion=False,
+                    impurity=False,
+                    label='root',
+                    precision=2,
+                    fontsize=8)
+            
+            plt.title("Decision Tree Visualization with Probabilities")
+            plt.show()
     
     # Only plot if graph is "yes"
     if graph == "yes":
