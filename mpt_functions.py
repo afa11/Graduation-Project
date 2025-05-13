@@ -462,7 +462,7 @@ def get_the_probabilities_with_logistic_regressionn(df, n1, n2, n3, n4, n5, n6, 
 ############################################################################################################################################
 
 
-def get_the_probabilities_with_logistic_regressionn_new(df, n1, n2, n3, n4, n5, n6, n7, n8, printt, use_df1="yes", use_df2="yes", use_df3="yes", use_df4="no"):
+def get_the_probabilities_with_logistic_regressionn_new(penalty, C_value, solver, max_iter, df, n1, n2, n3, n4, n5, n6, n7, n8, printt, use_df1="yes", use_df2="yes", use_df3="yes", use_df4="no"):
     # Create all dataframes as before
     df1 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f1_start, "backward", n1), adjust_datetime(f1_finish, "forward", n2))
     df2 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f2_start, "backward", n3), adjust_datetime(f2_finish, "forward", n4))
@@ -504,7 +504,15 @@ def get_the_probabilities_with_logistic_regressionn_new(df, n1, n2, n3, n4, n5, 
     y_test = df_log_reg_test["condition"]
     X_test = df_log_reg_test.drop(["condition", "timestamp"], axis=1)
     
-    model = LogisticRegression()
+    model = LogisticRegression(
+    penalty=penalty,
+    C=C_value,
+    solver=solver,
+    max_iter=max_iter,
+    class_weight='balanced',
+    random_state=30)
+
+
     model.fit(X_train, y_train)
     
     # Calculate p-values
@@ -521,7 +529,6 @@ def get_the_probabilities_with_logistic_regressionn_new(df, n1, n2, n3, n4, n5, 
     print(np.linalg.matrix_rank(np.dot(X_train.T, X_train)))
     print(np.dot(X_train.T, X_train).shape)
     corr_matrix = pd.DataFrame(X_train).corr()
-    print(corr_matrix)
     #
 
     var_coef = mse * np.linalg.pinv(np.dot(X_train.T, X_train)).diagonal()
