@@ -462,7 +462,7 @@ def get_the_probabilities_with_logistic_regressionn(df, n1, n2, n3, n4, n5, n6, 
 ############################################################################################################################################
 
 
-def get_the_probabilities_with_logistic_regressionn_new(penalty, C_value, solver, max_iter, df, n1, n2, n3, n4, n5, n6, n7, n8, printt, use_df1="yes", use_df2="yes", use_df3="yes", use_df4="no"):
+def get_the_probabilities_with_logistic_regressionn_new(penalty, C_value, solver, max_iter, df, n1, n2, n3, n4, n5, n6, n7, n8, printt="no", use_df1="yes", use_df2="yes", use_df3="yes", use_df4="no"):
     # Create all dataframes as before
     df1 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f1_start, "backward", n1), adjust_datetime(f1_finish, "forward", n2))
     df2 = filter_rows_between_the_given_timestamps(df, adjust_datetime(f2_start, "backward", n3), adjust_datetime(f2_finish, "forward", n4))
