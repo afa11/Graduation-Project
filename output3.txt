@@ -1,0 +1,1245 @@
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     9.248356  0.000000e+00
+LPS                  -4.406276  0.000000e+00
+counter               4.214935  0.000000e+00
+Oil_temperature       2.096571  0.000000e+00
+Pressure_switch       1.910115  0.000000e+00
+TP2                  -1.476091  0.000000e+00
+DV_pressure           1.364960  0.000000e+00
+TP3                  -1.145146  0.000000e+00
+H1                   -1.126058  0.000000e+00
+COMP                 -0.999130  0.000000e+00
+MPG                  -0.975900  0.000000e+00
+DV_eletric            0.714064  0.000000e+00
+Reservoirs           -0.580068  9.348078e-14
+Oil_level            -0.237867  6.661338e-16
+Caudal_impulses      -0.237867  6.661338e-16
+Motor_current        -0.099671  0.000000e+00
+Towers               -0.069702  0.000000e+00
+Intercept: -9.345033120742505
+R-squareddd: 0.9533168936486122
+F-Value: 189408.61292365566
+Early Score: 68.262903 (kullanılan satır sayısı: 244)
+False Score: -101.036604 (kullanılan satır sayısı: 548)
+-32.773700841028216
+0
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sklearn/linear_model/_sag.py:348: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  warnings.warn(
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     9.248356  0.000000e+00
+LPS                  -4.406276  0.000000e+00
+counter               4.214935  0.000000e+00
+Oil_temperature       2.096571  0.000000e+00
+Pressure_switch       1.910115  0.000000e+00
+TP2                  -1.476091  0.000000e+00
+DV_pressure           1.364960  0.000000e+00
+TP3                  -1.145146  0.000000e+00
+H1                   -1.126058  0.000000e+00
+COMP                 -0.999130  0.000000e+00
+MPG                  -0.975900  0.000000e+00
+DV_eletric            0.714064  0.000000e+00
+Reservoirs           -0.580068  9.348078e-14
+Oil_level            -0.237867  6.661338e-16
+Caudal_impulses      -0.237867  6.661338e-16
+Motor_current        -0.099671  0.000000e+00
+Towers               -0.069702  0.000000e+00
+Intercept: -9.345033120742505
+R-squareddd: 0.9533168936486122
+F-Value: 189408.61292365566
+Early Score: 120.283512 (kullanılan satır sayısı: 379)
+False Score: -218.026557 (kullanılan satır sayısı: 1098)
+-97.74304455667601
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     9.253128  0.000000e+00
+LPS                  -4.406394  0.000000e+00
+counter               4.216374  0.000000e+00
+Oil_temperature       2.096794  0.000000e+00
+Pressure_switch       1.909109  0.000000e+00
+TP2                  -1.475400  0.000000e+00
+DV_pressure           1.365062  0.000000e+00
+TP3                  -1.151641  0.000000e+00
+H1                   -1.117946  0.000000e+00
+COMP                 -1.003574  0.000000e+00
+MPG                  -0.981656  0.000000e+00
+DV_eletric            0.726857  0.000000e+00
+Reservoirs           -0.573859  1.705303e-13
+Oil_level            -0.232136  3.108624e-15
+Caudal_impulses      -0.232136  3.108624e-15
+Motor_current        -0.101510  0.000000e+00
+Towers               -0.069726  0.000000e+00
+Intercept: -9.349855865470952
+R-squareddd: 0.9533168936486122
+F-Value: 189408.61292365566
+Early Score: 160.717904 (kullanılan satır sayısı: 400)
+False Score: -533.233185 (kullanılan satır sayısı: 2210)
+-372.5152813454529
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     9.253128  0.000000e+00
+LPS                  -4.406394  0.000000e+00
+counter               4.216374  0.000000e+00
+Oil_temperature       2.096794  0.000000e+00
+Pressure_switch       1.909109  0.000000e+00
+TP2                  -1.475400  0.000000e+00
+DV_pressure           1.365062  0.000000e+00
+TP3                  -1.151641  0.000000e+00
+H1                   -1.117946  0.000000e+00
+COMP                 -1.003574  0.000000e+00
+MPG                  -0.981656  0.000000e+00
+DV_eletric            0.726857  0.000000e+00
+Reservoirs           -0.573859  1.705303e-13
+Oil_level            -0.232136  3.108624e-15
+Caudal_impulses      -0.232136  3.108624e-15
+Motor_current        -0.101510  0.000000e+00
+Towers               -0.069726  0.000000e+00
+Intercept: -9.349855865470952
+R-squareddd: 0.9533168936486122
+F-Value: 189408.61292365566
+Early Score: 167.172393 (kullanılan satır sayısı: 399)
+False Score: -1219.659837 (kullanılan satır sayısı: 4405)
+-1052.48744415358
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     9.253128  0.000000e+00
+LPS                  -4.406394  0.000000e+00
+counter               4.216374  0.000000e+00
+Oil_temperature       2.096794  0.000000e+00
+Pressure_switch       1.909109  0.000000e+00
+TP2                  -1.475400  0.000000e+00
+DV_pressure           1.365062  0.000000e+00
+TP3                  -1.151641  0.000000e+00
+H1                   -1.117946  0.000000e+00
+COMP                 -1.003574  0.000000e+00
+MPG                  -0.981656  0.000000e+00
+DV_eletric            0.726857  0.000000e+00
+Reservoirs           -0.573859  1.705303e-13
+Oil_level            -0.232136  3.108624e-15
+Caudal_impulses      -0.232136  3.108624e-15
+Motor_current        -0.101510  0.000000e+00
+Towers               -0.069726  0.000000e+00
+Intercept: -9.349855865470952
+R-squareddd: 0.9533168936486122
+F-Value: 189408.61292365566
+Early Score: 68.391755 (kullanılan satır sayısı: 244)
+False Score: -101.116474 (kullanılan satır sayısı: 548)
+-32.72471848618042
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     9.253128  0.000000e+00
+LPS                  -4.406394  0.000000e+00
+counter               4.216374  0.000000e+00
+Oil_temperature       2.096794  0.000000e+00
+Pressure_switch       1.909109  0.000000e+00
+TP2                  -1.475400  0.000000e+00
+DV_pressure           1.365062  0.000000e+00
+TP3                  -1.151641  0.000000e+00
+H1                   -1.117946  0.000000e+00
+COMP                 -1.003574  0.000000e+00
+MPG                  -0.981656  0.000000e+00
+DV_eletric            0.726857  0.000000e+00
+Reservoirs           -0.573859  1.705303e-13
+Oil_level            -0.232136  3.108624e-15
+Caudal_impulses      -0.232136  3.108624e-15
+Motor_current        -0.101510  0.000000e+00
+Towers               -0.069726  0.000000e+00
+Intercept: -9.349855865470952
+R-squareddd: 0.9533168936486122
+F-Value: 189408.61292365566
+Early Score: 120.478283 (kullanılan satır sayısı: 379)
+False Score: -218.250017 (kullanılan satır sayısı: 1098)
+-97.77173423354151
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     9.253128  0.000000e+00
+LPS                  -4.406394  0.000000e+00
+counter               4.216374  0.000000e+00
+Oil_temperature       2.096794  0.000000e+00
+Pressure_switch       1.909109  0.000000e+00
+TP2                  -1.475400  0.000000e+00
+DV_pressure           1.365062  0.000000e+00
+TP3                  -1.151641  0.000000e+00
+H1                   -1.117946  0.000000e+00
+COMP                 -1.003574  0.000000e+00
+MPG                  -0.981656  0.000000e+00
+DV_eletric            0.726857  0.000000e+00
+Reservoirs           -0.573859  1.705303e-13
+Oil_level            -0.232136  3.108624e-15
+Caudal_impulses      -0.232136  3.108624e-15
+Motor_current        -0.101510  0.000000e+00
+Towers               -0.069726  0.000000e+00
+Intercept: -9.349855865470952
+R-squareddd: 0.9533168936486122
+F-Value: 189408.61292365566
+Early Score: 160.717904 (kullanılan satır sayısı: 400)
+False Score: -533.233185 (kullanılan satır sayısı: 2210)
+-372.5152813454529
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     9.253128  0.000000e+00
+LPS                  -4.406394  0.000000e+00
+counter               4.216374  0.000000e+00
+Oil_temperature       2.096794  0.000000e+00
+Pressure_switch       1.909109  0.000000e+00
+TP2                  -1.475400  0.000000e+00
+DV_pressure           1.365062  0.000000e+00
+TP3                  -1.151641  0.000000e+00
+H1                   -1.117946  0.000000e+00
+COMP                 -1.003574  0.000000e+00
+MPG                  -0.981656  0.000000e+00
+DV_eletric            0.726857  0.000000e+00
+Reservoirs           -0.573859  1.705303e-13
+Oil_level            -0.232136  3.108624e-15
+Caudal_impulses      -0.232136  3.108624e-15
+Motor_current        -0.101510  0.000000e+00
+Towers               -0.069726  0.000000e+00
+Intercept: -9.349855865470952
+R-squareddd: 0.9533168936486122
+F-Value: 189408.61292365566
+Early Score: 167.172393 (kullanılan satır sayısı: 399)
+False Score: -1219.659837 (kullanılan satır sayısı: 4405)
+-1052.48744415358
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     9.253128  0.000000e+00
+LPS                  -4.406394  0.000000e+00
+counter               4.216374  0.000000e+00
+Oil_temperature       2.096794  0.000000e+00
+Pressure_switch       1.909109  0.000000e+00
+TP2                  -1.475400  0.000000e+00
+DV_pressure           1.365062  0.000000e+00
+TP3                  -1.151641  0.000000e+00
+H1                   -1.117946  0.000000e+00
+COMP                 -1.003574  0.000000e+00
+MPG                  -0.981656  0.000000e+00
+DV_eletric            0.726857  0.000000e+00
+Reservoirs           -0.573859  1.705303e-13
+Oil_level            -0.232136  3.108624e-15
+Caudal_impulses      -0.232136  3.108624e-15
+Motor_current        -0.101510  0.000000e+00
+Towers               -0.069726  0.000000e+00
+Intercept: -9.349855865470952
+R-squareddd: 0.9533168936486122
+F-Value: 189408.61292365566
+Early Score: 68.391755 (kullanılan satır sayısı: 244)
+False Score: -101.116474 (kullanılan satır sayısı: 548)
+-32.72471848618042
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     9.253128  0.000000e+00
+LPS                  -4.406394  0.000000e+00
+counter               4.216374  0.000000e+00
+Oil_temperature       2.096794  0.000000e+00
+Pressure_switch       1.909109  0.000000e+00
+TP2                  -1.475400  0.000000e+00
+DV_pressure           1.365062  0.000000e+00
+TP3                  -1.151641  0.000000e+00
+H1                   -1.117946  0.000000e+00
+COMP                 -1.003574  0.000000e+00
+MPG                  -0.981656  0.000000e+00
+DV_eletric            0.726857  0.000000e+00
+Reservoirs           -0.573859  1.705303e-13
+Oil_level            -0.232136  3.108624e-15
+Caudal_impulses      -0.232136  3.108624e-15
+Motor_current        -0.101510  0.000000e+00
+Towers               -0.069726  0.000000e+00
+Intercept: -9.349855865470952
+R-squareddd: 0.9533168936486122
+F-Value: 189408.61292365566
+Early Score: 120.478283 (kullanılan satır sayısı: 379)
+False Score: -218.250017 (kullanılan satır sayısı: 1098)
+-97.77173423354151
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     8.881092  0.000000e+00
+LPS                  -4.399812  0.000000e+00
+counter               4.054214  0.000000e+00
+Oil_temperature       2.036378  0.000000e+00
+Pressure_switch       1.921178  0.000000e+00
+TP2                  -1.486918  0.000000e+00
+DV_pressure           1.349504  0.000000e+00
+H1                   -1.229856  0.000000e+00
+TP3                  -1.157241  0.000000e+00
+COMP                 -0.907339  0.000000e+00
+MPG                  -0.883858  7.638334e-14
+Reservoirs           -0.531247  1.133627e-11
+DV_eletric            0.444781  6.061818e-14
+Oil_level            -0.414620  0.000000e+00
+Caudal_impulses      -0.414620  0.000000e+00
+Towers               -0.068812  0.000000e+00
+Motor_current         0.009638  0.000000e+00
+Intercept: -8.914456772422582
+R-squareddd: 0.9528436086994275
+F-Value: 187414.5237965236
+Early Score: 151.458480 (kullanılan satır sayısı: 399)
+False Score: -489.650753 (kullanılan satır sayısı: 2077)
+-338.19227327213173
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     8.881092  0.000000e+00
+LPS                  -4.399812  0.000000e+00
+counter               4.054214  0.000000e+00
+Oil_temperature       2.036378  0.000000e+00
+Pressure_switch       1.921178  0.000000e+00
+TP2                  -1.486918  0.000000e+00
+DV_pressure           1.349504  0.000000e+00
+H1                   -1.229856  0.000000e+00
+TP3                  -1.157241  0.000000e+00
+COMP                 -0.907339  0.000000e+00
+MPG                  -0.883858  7.638334e-14
+Reservoirs           -0.531247  1.133627e-11
+DV_eletric            0.444781  6.061818e-14
+Oil_level            -0.414620  0.000000e+00
+Caudal_impulses      -0.414620  0.000000e+00
+Towers               -0.068812  0.000000e+00
+Motor_current         0.009638  0.000000e+00
+Intercept: -8.914456772422582
+R-squareddd: 0.9528436086994275
+F-Value: 187414.5237965236
+Early Score: 158.992693 (kullanılan satır sayısı: 398)
+False Score: -1123.079675 (kullanılan satır sayısı: 4158)
+-964.0869819538656
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     8.881092  0.000000e+00
+LPS                  -4.399812  0.000000e+00
+counter               4.054214  0.000000e+00
+Oil_temperature       2.036378  0.000000e+00
+Pressure_switch       1.921178  0.000000e+00
+TP2                  -1.486918  0.000000e+00
+DV_pressure           1.349504  0.000000e+00
+H1                   -1.229856  0.000000e+00
+TP3                  -1.157241  0.000000e+00
+COMP                 -0.907339  0.000000e+00
+MPG                  -0.883858  7.638334e-14
+Reservoirs           -0.531247  1.133627e-11
+DV_eletric            0.444781  6.061818e-14
+Oil_level            -0.414620  0.000000e+00
+Caudal_impulses      -0.414620  0.000000e+00
+Towers               -0.068812  0.000000e+00
+Motor_current         0.009638  0.000000e+00
+Intercept: -8.914456772422582
+R-squareddd: 0.9528436086994275
+F-Value: 187414.5237965236
+Early Score: 60.979618 (kullanılan satır sayısı: 229)
+False Score: -95.173031 (kullanılan satır sayısı: 517)
+-34.19341359850759
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     8.881092  0.000000e+00
+LPS                  -4.399812  0.000000e+00
+counter               4.054214  0.000000e+00
+Oil_temperature       2.036378  0.000000e+00
+Pressure_switch       1.921178  0.000000e+00
+TP2                  -1.486918  0.000000e+00
+DV_pressure           1.349504  0.000000e+00
+H1                   -1.229856  0.000000e+00
+TP3                  -1.157241  0.000000e+00
+COMP                 -0.907339  0.000000e+00
+MPG                  -0.883858  7.638334e-14
+Reservoirs           -0.531247  1.133627e-11
+DV_eletric            0.444781  6.061818e-14
+Oil_level            -0.414620  0.000000e+00
+Caudal_impulses      -0.414620  0.000000e+00
+Towers               -0.068812  0.000000e+00
+Motor_current         0.009638  0.000000e+00
+Intercept: -8.914456772422582
+R-squareddd: 0.9528436086994275
+F-Value: 187414.5237965236
+Early Score: 109.705554 (kullanılan satır sayısı: 369)
+False Score: -202.440632 (kullanılan satır sayısı: 1038)
+-92.73507827021184
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     8.881092  0.000000e+00
+LPS                  -4.399812  0.000000e+00
+counter               4.054214  0.000000e+00
+Oil_temperature       2.036378  0.000000e+00
+Pressure_switch       1.921178  0.000000e+00
+TP2                  -1.486918  0.000000e+00
+DV_pressure           1.349504  0.000000e+00
+H1                   -1.229856  0.000000e+00
+TP3                  -1.157241  0.000000e+00
+COMP                 -0.907339  0.000000e+00
+MPG                  -0.883858  7.638334e-14
+Reservoirs           -0.531247  1.133627e-11
+DV_eletric            0.444781  6.061818e-14
+Oil_level            -0.414620  0.000000e+00
+Caudal_impulses      -0.414620  0.000000e+00
+Towers               -0.068812  0.000000e+00
+Motor_current         0.009638  0.000000e+00
+Intercept: -8.914456772422582
+R-squareddd: 0.9528436086994275
+F-Value: 187414.5237965236
+Early Score: 151.458480 (kullanılan satır sayısı: 399)
+False Score: -489.650753 (kullanılan satır sayısı: 2077)
+-338.19227327213173
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     8.881092  0.000000e+00
+LPS                  -4.399812  0.000000e+00
+counter               4.054214  0.000000e+00
+Oil_temperature       2.036378  0.000000e+00
+Pressure_switch       1.921178  0.000000e+00
+TP2                  -1.486918  0.000000e+00
+DV_pressure           1.349504  0.000000e+00
+H1                   -1.229856  0.000000e+00
+TP3                  -1.157241  0.000000e+00
+COMP                 -0.907339  0.000000e+00
+MPG                  -0.883858  7.638334e-14
+Reservoirs           -0.531247  1.133627e-11
+DV_eletric            0.444781  6.061818e-14
+Oil_level            -0.414620  0.000000e+00
+Caudal_impulses      -0.414620  0.000000e+00
+Towers               -0.068812  0.000000e+00
+Motor_current         0.009638  0.000000e+00
+Intercept: -8.914456772422582
+R-squareddd: 0.9528436086994275
+F-Value: 187414.5237965236
+Early Score: 158.992693 (kullanılan satır sayısı: 398)
+False Score: -1123.079675 (kullanılan satır sayısı: 4158)
+-964.0869819538656
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     8.881092  0.000000e+00
+LPS                  -4.399812  0.000000e+00
+counter               4.054214  0.000000e+00
+Oil_temperature       2.036378  0.000000e+00
+Pressure_switch       1.921178  0.000000e+00
+TP2                  -1.486918  0.000000e+00
+DV_pressure           1.349504  0.000000e+00
+H1                   -1.229856  0.000000e+00
+TP3                  -1.157241  0.000000e+00
+COMP                 -0.907339  0.000000e+00
+MPG                  -0.883858  7.638334e-14
+Reservoirs           -0.531247  1.133627e-11
+DV_eletric            0.444781  6.061818e-14
+Oil_level            -0.414620  0.000000e+00
+Caudal_impulses      -0.414620  0.000000e+00
+Towers               -0.068812  0.000000e+00
+Motor_current         0.009638  0.000000e+00
+Intercept: -8.914456772422582
+R-squareddd: 0.9528436086994275
+F-Value: 187414.5237965236
+Early Score: 60.979618 (kullanılan satır sayısı: 229)
+False Score: -95.173031 (kullanılan satır sayısı: 517)
+-34.19341359850759
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     8.881092  0.000000e+00
+LPS                  -4.399812  0.000000e+00
+counter               4.054214  0.000000e+00
+Oil_temperature       2.036378  0.000000e+00
+Pressure_switch       1.921178  0.000000e+00
+TP2                  -1.486918  0.000000e+00
+DV_pressure           1.349504  0.000000e+00
+H1                   -1.229856  0.000000e+00
+TP3                  -1.157241  0.000000e+00
+COMP                 -0.907339  0.000000e+00
+MPG                  -0.883858  7.638334e-14
+Reservoirs           -0.531247  1.133627e-11
+DV_eletric            0.444781  6.061818e-14
+Oil_level            -0.414620  0.000000e+00
+Caudal_impulses      -0.414620  0.000000e+00
+Towers               -0.068812  0.000000e+00
+Motor_current         0.009638  0.000000e+00
+Intercept: -8.914456772422582
+R-squareddd: 0.9528436086994275
+F-Value: 187414.5237965236
+Early Score: 109.705554 (kullanılan satır sayısı: 369)
+False Score: -202.440632 (kullanılan satır sayısı: 1038)
+-92.73507827021184
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     8.881092  0.000000e+00
+LPS                  -4.399812  0.000000e+00
+counter               4.054214  0.000000e+00
+Oil_temperature       2.036378  0.000000e+00
+Pressure_switch       1.921178  0.000000e+00
+TP2                  -1.486918  0.000000e+00
+DV_pressure           1.349504  0.000000e+00
+H1                   -1.229856  0.000000e+00
+TP3                  -1.157241  0.000000e+00
+COMP                 -0.907339  0.000000e+00
+MPG                  -0.883858  7.638334e-14
+Reservoirs           -0.531247  1.133627e-11
+DV_eletric            0.444781  6.061818e-14
+Oil_level            -0.414620  0.000000e+00
+Caudal_impulses      -0.414620  0.000000e+00
+Towers               -0.068812  0.000000e+00
+Motor_current         0.009638  0.000000e+00
+Intercept: -8.914456772422582
+R-squareddd: 0.9528436086994275
+F-Value: 187414.5237965236
+Early Score: 151.458480 (kullanılan satır sayısı: 399)
+False Score: -489.650753 (kullanılan satır sayısı: 2077)
+-338.19227327213173
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     8.881092  0.000000e+00
+LPS                  -4.399812  0.000000e+00
+counter               4.054214  0.000000e+00
+Oil_temperature       2.036378  0.000000e+00
+Pressure_switch       1.921178  0.000000e+00
+TP2                  -1.486918  0.000000e+00
+DV_pressure           1.349504  0.000000e+00
+H1                   -1.229856  0.000000e+00
+TP3                  -1.157241  0.000000e+00
+COMP                 -0.907339  0.000000e+00
+MPG                  -0.883858  7.638334e-14
+Reservoirs           -0.531247  1.133627e-11
+DV_eletric            0.444781  6.061818e-14
+Oil_level            -0.414620  0.000000e+00
+Caudal_impulses      -0.414620  0.000000e+00
+Towers               -0.068812  0.000000e+00
+Motor_current         0.009638  0.000000e+00
+Intercept: -8.914456772422582
+R-squareddd: 0.9528436086994275
+F-Value: 187414.5237965236
+Early Score: 158.992693 (kullanılan satır sayısı: 398)
+False Score: -1123.079675 (kullanılan satır sayısı: 4158)
+-964.0869819538656
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     8.881092  0.000000e+00
+LPS                  -4.399812  0.000000e+00
+counter               4.054214  0.000000e+00
+Oil_temperature       2.036378  0.000000e+00
+Pressure_switch       1.921178  0.000000e+00
+TP2                  -1.486918  0.000000e+00
+DV_pressure           1.349504  0.000000e+00
+H1                   -1.229856  0.000000e+00
+TP3                  -1.157241  0.000000e+00
+COMP                 -0.907339  0.000000e+00
+MPG                  -0.883858  7.638334e-14
+Reservoirs           -0.531247  1.133627e-11
+DV_eletric            0.444781  6.061818e-14
+Oil_level            -0.414620  0.000000e+00
+Caudal_impulses      -0.414620  0.000000e+00
+Towers               -0.068812  0.000000e+00
+Motor_current         0.009638  0.000000e+00
+Intercept: -8.914456772422582
+R-squareddd: 0.9528436086994275
+F-Value: 187414.5237965236
+Early Score: 60.979618 (kullanılan satır sayısı: 229)
+False Score: -95.173031 (kullanılan satır sayısı: 517)
+-34.19341359850759
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     8.881092  0.000000e+00
+LPS                  -4.399812  0.000000e+00
+counter               4.054214  0.000000e+00
+Oil_temperature       2.036378  0.000000e+00
+Pressure_switch       1.921178  0.000000e+00
+TP2                  -1.486918  0.000000e+00
+DV_pressure           1.349504  0.000000e+00
+H1                   -1.229856  0.000000e+00
+TP3                  -1.157241  0.000000e+00
+COMP                 -0.907339  0.000000e+00
+MPG                  -0.883858  7.638334e-14
+Reservoirs           -0.531247  1.133627e-11
+DV_eletric            0.444781  6.061818e-14
+Oil_level            -0.414620  0.000000e+00
+Caudal_impulses      -0.414620  0.000000e+00
+Towers               -0.068812  0.000000e+00
+Motor_current         0.009638  0.000000e+00
+Intercept: -8.914456772422582
+R-squareddd: 0.9528436086994275
+F-Value: 187414.5237965236
+Early Score: 109.705554 (kullanılan satır sayısı: 369)
+False Score: -202.440632 (kullanılan satır sayısı: 1038)
+-92.73507827021184
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.866894  0.000000e+00
+LPS                  -4.332402  0.000000e+00
+counter               3.825708  0.000000e+00
+Oil_temperature       2.061833  0.000000e+00
+Pressure_switch       1.789945  0.000000e+00
+TP2                  -1.421972  0.000000e+00
+DV_pressure           1.322643  0.000000e+00
+H1                   -1.151054  0.000000e+00
+TP3                  -1.035359  0.000000e+00
+COMP                 -0.918539  0.000000e+00
+MPG                  -0.907816  5.484502e-14
+Reservoirs           -0.648776  4.440892e-16
+DV_eletric            0.645208  0.000000e+00
+Oil_level            -0.251410  0.000000e+00
+Caudal_impulses      -0.251410  0.000000e+00
+Motor_current        -0.096719  0.000000e+00
+Towers               -0.069799  0.000000e+00
+Intercept: -8.929487268978306
+R-squareddd: 0.9508213911892752
+F-Value: 179326.67085465635
+Early Score: 105.977616 (kullanılan satır sayısı: 358)
+False Score: -233.567870 (kullanılan satır sayısı: 1354)
+-127.59025410545122
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.866894  0.000000e+00
+LPS                  -4.332402  0.000000e+00
+counter               3.825708  0.000000e+00
+Oil_temperature       2.061833  0.000000e+00
+Pressure_switch       1.789945  0.000000e+00
+TP2                  -1.421972  0.000000e+00
+DV_pressure           1.322643  0.000000e+00
+H1                   -1.151054  0.000000e+00
+TP3                  -1.035359  0.000000e+00
+COMP                 -0.918539  0.000000e+00
+MPG                  -0.907816  5.484502e-14
+Reservoirs           -0.648776  4.440892e-16
+DV_eletric            0.645208  0.000000e+00
+Oil_level            -0.251410  0.000000e+00
+Caudal_impulses      -0.251410  0.000000e+00
+Motor_current        -0.096719  0.000000e+00
+Towers               -0.069799  0.000000e+00
+Intercept: -8.929487268978306
+R-squareddd: 0.9508213911892752
+F-Value: 179326.67085465635
+Early Score: 120.408473 (kullanılan satır sayısı: 325)
+False Score: -557.429333 (kullanılan satır sayısı: 2701)
+-437.0208605803209
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.866894  0.000000e+00
+LPS                  -4.332402  0.000000e+00
+counter               3.825708  0.000000e+00
+Oil_temperature       2.061833  0.000000e+00
+Pressure_switch       1.789945  0.000000e+00
+TP2                  -1.421972  0.000000e+00
+DV_pressure           1.322643  0.000000e+00
+H1                   -1.151054  0.000000e+00
+TP3                  -1.035359  0.000000e+00
+COMP                 -0.918539  0.000000e+00
+MPG                  -0.907816  5.484502e-14
+Reservoirs           -0.648776  4.440892e-16
+DV_eletric            0.645208  0.000000e+00
+Oil_level            -0.251410  0.000000e+00
+Caudal_impulses      -0.251410  0.000000e+00
+Motor_current        -0.096719  0.000000e+00
+Towers               -0.069799  0.000000e+00
+Intercept: -8.929487268978306
+R-squareddd: 0.9508213911892752
+F-Value: 179326.67085465635
+Early Score: 33.330676 (kullanılan satır sayısı: 142)
+False Score: -47.889584 (kullanılan satır sayısı: 332)
+-14.55890750025928
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.866894  0.000000e+00
+LPS                  -4.332402  0.000000e+00
+counter               3.825708  0.000000e+00
+Oil_temperature       2.061833  0.000000e+00
+Pressure_switch       1.789945  0.000000e+00
+TP2                  -1.421972  0.000000e+00
+DV_pressure           1.322643  0.000000e+00
+H1                   -1.151054  0.000000e+00
+TP3                  -1.035359  0.000000e+00
+COMP                 -0.918539  0.000000e+00
+MPG                  -0.907816  5.484502e-14
+Reservoirs           -0.648776  4.440892e-16
+DV_eletric            0.645208  0.000000e+00
+Oil_level            -0.251410  0.000000e+00
+Caudal_impulses      -0.251410  0.000000e+00
+Motor_current        -0.096719  0.000000e+00
+Towers               -0.069799  0.000000e+00
+Intercept: -8.929487268978306
+R-squareddd: 0.9508213911892752
+F-Value: 179326.67085465635
+Early Score: 63.233357 (kullanılan satır sayısı: 266)
+False Score: -98.434425 (kullanılan satır sayısı: 662)
+-35.201068046593896
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.866894  0.000000e+00
+LPS                  -4.332402  0.000000e+00
+counter               3.825708  0.000000e+00
+Oil_temperature       2.061833  0.000000e+00
+Pressure_switch       1.789945  0.000000e+00
+TP2                  -1.421972  0.000000e+00
+DV_pressure           1.322643  0.000000e+00
+H1                   -1.151054  0.000000e+00
+TP3                  -1.035359  0.000000e+00
+COMP                 -0.918539  0.000000e+00
+MPG                  -0.907816  5.484502e-14
+Reservoirs           -0.648776  4.440892e-16
+DV_eletric            0.645208  0.000000e+00
+Oil_level            -0.251410  0.000000e+00
+Caudal_impulses      -0.251410  0.000000e+00
+Motor_current        -0.096719  0.000000e+00
+Towers               -0.069799  0.000000e+00
+Intercept: -8.929487268978306
+R-squareddd: 0.9508213911892752
+F-Value: 179326.67085465635
+Early Score: 105.977616 (kullanılan satır sayısı: 358)
+False Score: -233.567870 (kullanılan satır sayısı: 1354)
+-127.59025410545122
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.866894  0.000000e+00
+LPS                  -4.332402  0.000000e+00
+counter               3.825708  0.000000e+00
+Oil_temperature       2.061833  0.000000e+00
+Pressure_switch       1.789945  0.000000e+00
+TP2                  -1.421972  0.000000e+00
+DV_pressure           1.322643  0.000000e+00
+H1                   -1.151054  0.000000e+00
+TP3                  -1.035359  0.000000e+00
+COMP                 -0.918539  0.000000e+00
+MPG                  -0.907816  5.484502e-14
+Reservoirs           -0.648776  4.440892e-16
+DV_eletric            0.645208  0.000000e+00
+Oil_level            -0.251410  0.000000e+00
+Caudal_impulses      -0.251410  0.000000e+00
+Motor_current        -0.096719  0.000000e+00
+Towers               -0.069799  0.000000e+00
+Intercept: -8.929487268978306
+R-squareddd: 0.9508213911892752
+F-Value: 179326.67085465635
+Early Score: 120.408473 (kullanılan satır sayısı: 325)
+False Score: -557.429333 (kullanılan satır sayısı: 2701)
+-437.0208605803209
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.866894  0.000000e+00
+LPS                  -4.332402  0.000000e+00
+counter               3.825708  0.000000e+00
+Oil_temperature       2.061833  0.000000e+00
+Pressure_switch       1.789945  0.000000e+00
+TP2                  -1.421972  0.000000e+00
+DV_pressure           1.322643  0.000000e+00
+H1                   -1.151054  0.000000e+00
+TP3                  -1.035359  0.000000e+00
+COMP                 -0.918539  0.000000e+00
+MPG                  -0.907816  5.484502e-14
+Reservoirs           -0.648776  4.440892e-16
+DV_eletric            0.645208  0.000000e+00
+Oil_level            -0.251410  0.000000e+00
+Caudal_impulses      -0.251410  0.000000e+00
+Motor_current        -0.096719  0.000000e+00
+Towers               -0.069799  0.000000e+00
+Intercept: -8.929487268978306
+R-squareddd: 0.9508213911892752
+F-Value: 179326.67085465635
+Early Score: 33.330676 (kullanılan satır sayısı: 142)
+False Score: -47.889584 (kullanılan satır sayısı: 332)
+-14.55890750025928
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.866894  0.000000e+00
+LPS                  -4.332402  0.000000e+00
+counter               3.825708  0.000000e+00
+Oil_temperature       2.061833  0.000000e+00
+Pressure_switch       1.789945  0.000000e+00
+TP2                  -1.421972  0.000000e+00
+DV_pressure           1.322643  0.000000e+00
+H1                   -1.151054  0.000000e+00
+TP3                  -1.035359  0.000000e+00
+COMP                 -0.918539  0.000000e+00
+MPG                  -0.907816  5.484502e-14
+Reservoirs           -0.648776  4.440892e-16
+DV_eletric            0.645208  0.000000e+00
+Oil_level            -0.251410  0.000000e+00
+Caudal_impulses      -0.251410  0.000000e+00
+Motor_current        -0.096719  0.000000e+00
+Towers               -0.069799  0.000000e+00
+Intercept: -8.929487268978306
+R-squareddd: 0.9508213911892752
+F-Value: 179326.67085465635
+Early Score: 63.233357 (kullanılan satır sayısı: 266)
+False Score: -98.434425 (kullanılan satır sayısı: 662)
+-35.201068046593896
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.866894  0.000000e+00
+LPS                  -4.332402  0.000000e+00
+counter               3.825708  0.000000e+00
+Oil_temperature       2.061833  0.000000e+00
+Pressure_switch       1.789945  0.000000e+00
+TP2                  -1.421972  0.000000e+00
+DV_pressure           1.322643  0.000000e+00
+H1                   -1.151054  0.000000e+00
+TP3                  -1.035359  0.000000e+00
+COMP                 -0.918539  0.000000e+00
+MPG                  -0.907816  5.484502e-14
+Reservoirs           -0.648776  4.440892e-16
+DV_eletric            0.645208  0.000000e+00
+Oil_level            -0.251410  0.000000e+00
+Caudal_impulses      -0.251410  0.000000e+00
+Motor_current        -0.096719  0.000000e+00
+Towers               -0.069799  0.000000e+00
+Intercept: -8.929487268978306
+R-squareddd: 0.9508213911892752
+F-Value: 179326.67085465635
+Early Score: 105.977616 (kullanılan satır sayısı: 358)
+False Score: -233.567870 (kullanılan satır sayısı: 1354)
+-127.59025410545122
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.866894  0.000000e+00
+LPS                  -4.332402  0.000000e+00
+counter               3.825708  0.000000e+00
+Oil_temperature       2.061833  0.000000e+00
+Pressure_switch       1.789945  0.000000e+00
+TP2                  -1.421972  0.000000e+00
+DV_pressure           1.322643  0.000000e+00
+H1                   -1.151054  0.000000e+00
+TP3                  -1.035359  0.000000e+00
+COMP                 -0.918539  0.000000e+00
+MPG                  -0.907816  5.484502e-14
+Reservoirs           -0.648776  4.440892e-16
+DV_eletric            0.645208  0.000000e+00
+Oil_level            -0.251410  0.000000e+00
+Caudal_impulses      -0.251410  0.000000e+00
+Motor_current        -0.096719  0.000000e+00
+Towers               -0.069799  0.000000e+00
+Intercept: -8.929487268978306
+R-squareddd: 0.9508213911892752
+F-Value: 179326.67085465635
+Early Score: 120.408473 (kullanılan satır sayısı: 325)
+False Score: -557.429333 (kullanılan satır sayısı: 2701)
+-437.0208605803209
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.866894  0.000000e+00
+LPS                  -4.332402  0.000000e+00
+counter               3.825708  0.000000e+00
+Oil_temperature       2.061833  0.000000e+00
+Pressure_switch       1.789945  0.000000e+00
+TP2                  -1.421972  0.000000e+00
+DV_pressure           1.322643  0.000000e+00
+H1                   -1.151054  0.000000e+00
+TP3                  -1.035359  0.000000e+00
+COMP                 -0.918539  0.000000e+00
+MPG                  -0.907816  5.484502e-14
+Reservoirs           -0.648776  4.440892e-16
+DV_eletric            0.645208  0.000000e+00
+Oil_level            -0.251410  0.000000e+00
+Caudal_impulses      -0.251410  0.000000e+00
+Motor_current        -0.096719  0.000000e+00
+Towers               -0.069799  0.000000e+00
+Intercept: -8.929487268978306
+R-squareddd: 0.9508213911892752
+F-Value: 179326.67085465635
+Early Score: 33.330676 (kullanılan satır sayısı: 142)
+False Score: -47.889584 (kullanılan satır sayısı: 332)
+-14.55890750025928
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.866894  0.000000e+00
+LPS                  -4.332402  0.000000e+00
+counter               3.825708  0.000000e+00
+Oil_temperature       2.061833  0.000000e+00
+Pressure_switch       1.789945  0.000000e+00
+TP2                  -1.421972  0.000000e+00
+DV_pressure           1.322643  0.000000e+00
+H1                   -1.151054  0.000000e+00
+TP3                  -1.035359  0.000000e+00
+COMP                 -0.918539  0.000000e+00
+MPG                  -0.907816  5.484502e-14
+Reservoirs           -0.648776  4.440892e-16
+DV_eletric            0.645208  0.000000e+00
+Oil_level            -0.251410  0.000000e+00
+Caudal_impulses      -0.251410  0.000000e+00
+Motor_current        -0.096719  0.000000e+00
+Towers               -0.069799  0.000000e+00
+Intercept: -8.929487268978306
+R-squareddd: 0.9508213911892752
+F-Value: 179326.67085465635
+Early Score: 63.233357 (kullanılan satır sayısı: 266)
+False Score: -98.434425 (kullanılan satır sayısı: 662)
+-35.201068046593896
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.404895  0.000000e+00
+LPS                  -4.321538  0.000000e+00
+counter               3.604057  0.000000e+00
+Oil_temperature       1.967790  0.000000e+00
+Pressure_switch       1.807613  0.000000e+00
+TP2                  -1.446515  0.000000e+00
+H1                   -1.327492  0.000000e+00
+DV_pressure           1.302240  0.000000e+00
+TP3                  -1.008123  0.000000e+00
+COMP                 -0.771771  0.000000e+00
+MPG                  -0.755897  1.007265e-09
+Reservoirs           -0.619756  3.863576e-14
+Oil_level            -0.551459  0.000000e+00
+Caudal_impulses      -0.551459  0.000000e+00
+DV_eletric            0.187890  2.450493e-03
+Motor_current         0.089871  0.000000e+00
+Towers               -0.068864  0.000000e+00
+Intercept: -8.239436974403706
+R-squareddd: 0.9483258887299384
+F-Value: 170218.50503878278
+Early Score: 91.833953 (kullanılan satır sayısı: 330)
+False Score: -223.458227 (kullanılan satır sayısı: 1265)
+-131.6242733549609
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.404895  0.000000e+00
+LPS                  -4.321538  0.000000e+00
+counter               3.604057  0.000000e+00
+Oil_temperature       1.967790  0.000000e+00
+Pressure_switch       1.807613  0.000000e+00
+TP2                  -1.446515  0.000000e+00
+H1                   -1.327492  0.000000e+00
+DV_pressure           1.302240  0.000000e+00
+TP3                  -1.008123  0.000000e+00
+COMP                 -0.771771  0.000000e+00
+MPG                  -0.755897  1.007265e-09
+Reservoirs           -0.619756  3.863576e-14
+Oil_level            -0.551459  0.000000e+00
+Caudal_impulses      -0.551459  0.000000e+00
+DV_eletric            0.187890  2.450493e-03
+Motor_current         0.089871  0.000000e+00
+Towers               -0.068864  0.000000e+00
+Intercept: -8.239436974403706
+R-squareddd: 0.9483258887299384
+F-Value: 170218.50503878278
+Early Score: 110.616694 (kullanılan satır sayısı: 301)
+False Score: -519.083815 (kullanılan satır sayısı: 2528)
+-408.4671209008502
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.404895  0.000000e+00
+LPS                  -4.321538  0.000000e+00
+counter               3.604057  0.000000e+00
+Oil_temperature       1.967790  0.000000e+00
+Pressure_switch       1.807613  0.000000e+00
+TP2                  -1.446515  0.000000e+00
+H1                   -1.327492  0.000000e+00
+DV_pressure           1.302240  0.000000e+00
+TP3                  -1.008123  0.000000e+00
+COMP                 -0.771771  0.000000e+00
+MPG                  -0.755897  1.007265e-09
+Reservoirs           -0.619756  3.863576e-14
+Oil_level            -0.551459  0.000000e+00
+Caudal_impulses      -0.551459  0.000000e+00
+DV_eletric            0.187890  2.450493e-03
+Motor_current         0.089871  0.000000e+00
+Towers               -0.068864  0.000000e+00
+Intercept: -8.239436974403706
+R-squareddd: 0.9483258887299384
+F-Value: 170218.50503878278
+Early Score: 27.083330 (kullanılan satır sayısı: 118)
+False Score: -48.054228 (kullanılan satır sayısı: 303)
+-20.970897411513352
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.404895  0.000000e+00
+LPS                  -4.321538  0.000000e+00
+counter               3.604057  0.000000e+00
+Oil_temperature       1.967790  0.000000e+00
+Pressure_switch       1.807613  0.000000e+00
+TP2                  -1.446515  0.000000e+00
+H1                   -1.327492  0.000000e+00
+DV_pressure           1.302240  0.000000e+00
+TP3                  -1.008123  0.000000e+00
+COMP                 -0.771771  0.000000e+00
+MPG                  -0.755897  1.007265e-09
+Reservoirs           -0.619756  3.863576e-14
+Oil_level            -0.551459  0.000000e+00
+Caudal_impulses      -0.551459  0.000000e+00
+DV_eletric            0.187890  2.450493e-03
+Motor_current         0.089871  0.000000e+00
+Towers               -0.068864  0.000000e+00
+Intercept: -8.239436974403706
+R-squareddd: 0.9483258887299384
+F-Value: 170218.50503878278
+Early Score: 51.386750 (kullanılan satır sayısı: 221)
+False Score: -98.153756 (kullanılan satır sayısı: 603)
+-46.76700662042162
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.404895  0.000000e+00
+LPS                  -4.321538  0.000000e+00
+counter               3.604057  0.000000e+00
+Oil_temperature       1.967790  0.000000e+00
+Pressure_switch       1.807613  0.000000e+00
+TP2                  -1.446515  0.000000e+00
+H1                   -1.327492  0.000000e+00
+DV_pressure           1.302240  0.000000e+00
+TP3                  -1.008123  0.000000e+00
+COMP                 -0.771771  0.000000e+00
+MPG                  -0.755897  1.007265e-09
+Reservoirs           -0.619756  3.863576e-14
+Oil_level            -0.551459  0.000000e+00
+Caudal_impulses      -0.551459  0.000000e+00
+DV_eletric            0.187890  2.450493e-03
+Motor_current         0.089871  0.000000e+00
+Towers               -0.068864  0.000000e+00
+Intercept: -8.239436974403706
+R-squareddd: 0.9483258887299384
+F-Value: 170218.50503878278
+Early Score: 91.833953 (kullanılan satır sayısı: 330)
+False Score: -223.458227 (kullanılan satır sayısı: 1265)
+-131.6242733549609
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.404895  0.000000e+00
+LPS                  -4.321538  0.000000e+00
+counter               3.604057  0.000000e+00
+Oil_temperature       1.967790  0.000000e+00
+Pressure_switch       1.807613  0.000000e+00
+TP2                  -1.446515  0.000000e+00
+H1                   -1.327492  0.000000e+00
+DV_pressure           1.302240  0.000000e+00
+TP3                  -1.008123  0.000000e+00
+COMP                 -0.771771  0.000000e+00
+MPG                  -0.755897  1.007265e-09
+Reservoirs           -0.619756  3.863576e-14
+Oil_level            -0.551459  0.000000e+00
+Caudal_impulses      -0.551459  0.000000e+00
+DV_eletric            0.187890  2.450493e-03
+Motor_current         0.089871  0.000000e+00
+Towers               -0.068864  0.000000e+00
+Intercept: -8.239436974403706
+R-squareddd: 0.9483258887299384
+F-Value: 170218.50503878278
+Early Score: 110.616694 (kullanılan satır sayısı: 301)
+False Score: -519.083815 (kullanılan satır sayısı: 2528)
+-408.4671209008502
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.404895  0.000000e+00
+LPS                  -4.321538  0.000000e+00
+counter               3.604057  0.000000e+00
+Oil_temperature       1.967790  0.000000e+00
+Pressure_switch       1.807613  0.000000e+00
+TP2                  -1.446515  0.000000e+00
+H1                   -1.327492  0.000000e+00
+DV_pressure           1.302240  0.000000e+00
+TP3                  -1.008123  0.000000e+00
+COMP                 -0.771771  0.000000e+00
+MPG                  -0.755897  1.007265e-09
+Reservoirs           -0.619756  3.863576e-14
+Oil_level            -0.551459  0.000000e+00
+Caudal_impulses      -0.551459  0.000000e+00
+DV_eletric            0.187890  2.450493e-03
+Motor_current         0.089871  0.000000e+00
+Towers               -0.068864  0.000000e+00
+Intercept: -8.239436974403706
+R-squareddd: 0.9483258887299384
+F-Value: 170218.50503878278
+Early Score: 27.083330 (kullanılan satır sayısı: 118)
+False Score: -48.054228 (kullanılan satır sayısı: 303)
+-20.970897411513352
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.404895  0.000000e+00
+LPS                  -4.321538  0.000000e+00
+counter               3.604057  0.000000e+00
+Oil_temperature       1.967790  0.000000e+00
+Pressure_switch       1.807613  0.000000e+00
+TP2                  -1.446515  0.000000e+00
+H1                   -1.327492  0.000000e+00
+DV_pressure           1.302240  0.000000e+00
+TP3                  -1.008123  0.000000e+00
+COMP                 -0.771771  0.000000e+00
+MPG                  -0.755897  1.007265e-09
+Reservoirs           -0.619756  3.863576e-14
+Oil_level            -0.551459  0.000000e+00
+Caudal_impulses      -0.551459  0.000000e+00
+DV_eletric            0.187890  2.450493e-03
+Motor_current         0.089871  0.000000e+00
+Towers               -0.068864  0.000000e+00
+Intercept: -8.239436974403706
+R-squareddd: 0.9483258887299384
+F-Value: 170218.50503878278
+Early Score: 51.386750 (kullanılan satır sayısı: 221)
+False Score: -98.153756 (kullanılan satır sayısı: 603)
+-46.76700662042162
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.404895  0.000000e+00
+LPS                  -4.321538  0.000000e+00
+counter               3.604057  0.000000e+00
+Oil_temperature       1.967790  0.000000e+00
+Pressure_switch       1.807613  0.000000e+00
+TP2                  -1.446515  0.000000e+00
+H1                   -1.327492  0.000000e+00
+DV_pressure           1.302240  0.000000e+00
+TP3                  -1.008123  0.000000e+00
+COMP                 -0.771771  0.000000e+00
+MPG                  -0.755897  1.007265e-09
+Reservoirs           -0.619756  3.863576e-14
+Oil_level            -0.551459  0.000000e+00
+Caudal_impulses      -0.551459  0.000000e+00
+DV_eletric            0.187890  2.450493e-03
+Motor_current         0.089871  0.000000e+00
+Towers               -0.068864  0.000000e+00
+Intercept: -8.239436974403706
+R-squareddd: 0.9483258887299384
+F-Value: 170218.50503878278
+Early Score: 91.833953 (kullanılan satır sayısı: 330)
+False Score: -223.458227 (kullanılan satır sayısı: 1265)
+-131.6242733549609
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.404895  0.000000e+00
+LPS                  -4.321538  0.000000e+00
+counter               3.604057  0.000000e+00
+Oil_temperature       1.967790  0.000000e+00
+Pressure_switch       1.807613  0.000000e+00
+TP2                  -1.446515  0.000000e+00
+H1                   -1.327492  0.000000e+00
+DV_pressure           1.302240  0.000000e+00
+TP3                  -1.008123  0.000000e+00
+COMP                 -0.771771  0.000000e+00
+MPG                  -0.755897  1.007265e-09
+Reservoirs           -0.619756  3.863576e-14
+Oil_level            -0.551459  0.000000e+00
+Caudal_impulses      -0.551459  0.000000e+00
+DV_eletric            0.187890  2.450493e-03
+Motor_current         0.089871  0.000000e+00
+Towers               -0.068864  0.000000e+00
+Intercept: -8.239436974403706
+R-squareddd: 0.9483258887299384
+F-Value: 170218.50503878278
+Early Score: 110.616694 (kullanılan satır sayısı: 301)
+False Score: -519.083815 (kullanılan satır sayısı: 2528)
+-408.4671209008502
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.404895  0.000000e+00
+LPS                  -4.321538  0.000000e+00
+counter               3.604057  0.000000e+00
+Oil_temperature       1.967790  0.000000e+00
+Pressure_switch       1.807613  0.000000e+00
+TP2                  -1.446515  0.000000e+00
+H1                   -1.327492  0.000000e+00
+DV_pressure           1.302240  0.000000e+00
+TP3                  -1.008123  0.000000e+00
+COMP                 -0.771771  0.000000e+00
+MPG                  -0.755897  1.007265e-09
+Reservoirs           -0.619756  3.863576e-14
+Oil_level            -0.551459  0.000000e+00
+Caudal_impulses      -0.551459  0.000000e+00
+DV_eletric            0.187890  2.450493e-03
+Motor_current         0.089871  0.000000e+00
+Towers               -0.068864  0.000000e+00
+Intercept: -8.239436974403706
+R-squareddd: 0.9483258887299384
+F-Value: 170218.50503878278
+Early Score: 27.083330 (kullanılan satır sayısı: 118)
+False Score: -48.054228 (kullanılan satır sayısı: 303)
+-20.970897411513352
+0
+16
+(17, 17)
+                   Coefficient       p_value
+data_point_number     7.404895  0.000000e+00
+LPS                  -4.321538  0.000000e+00
+counter               3.604057  0.000000e+00
+Oil_temperature       1.967790  0.000000e+00
+Pressure_switch       1.807613  0.000000e+00
+TP2                  -1.446515  0.000000e+00
+H1                   -1.327492  0.000000e+00
+DV_pressure           1.302240  0.000000e+00
+TP3                  -1.008123  0.000000e+00
+COMP                 -0.771771  0.000000e+00
+MPG                  -0.755897  1.007265e-09
+Reservoirs           -0.619756  3.863576e-14
+Oil_level            -0.551459  0.000000e+00
+Caudal_impulses      -0.551459  0.000000e+00
+DV_eletric            0.187890  2.450493e-03
+Motor_current         0.089871  0.000000e+00
+Towers               -0.068864  0.000000e+00
+Intercept: -8.239436974403706
+R-squareddd: 0.9483258887299384
+F-Value: 170218.50503878278
+Early Score: 51.386750 (kullanılan satır sayısı: 221)
+False Score: -98.153756 (kullanılan satır sayısı: 603)
+-46.76700662042162
+RESULTS ARE FOUND
+-10000 -10000 []

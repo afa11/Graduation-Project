@@ -13335,6 +13335,7 @@ Intercept: -8.497972964219668
 R-squareddd: 0.9483258887299384
 F-Value: 170218.50503878278
 Early Score: 30.996142 (kullanılan satır sayısı: 138)
+***
 False Score: -2.947117 (kullanılan satır sayısı: 150)
 28.04902497158914
 /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sklearn/linear_model/_sag.py:348: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
