@@ -1,7 +1,3 @@
-# Graduation-Project
-Graduation Project - Boğaziçi University
-Midterm Presentation 11.04.2025
-
 # Graduation Project: Predictive Maintenance for MetroPT3
  
 This repository contains the complete workflow for a predictive maintenance study using the MetroPT3 dataset. The goal of the project is to anticipate failures in metro systems by analyzing sensor data and applying machine learning models.
